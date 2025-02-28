@@ -27,7 +27,7 @@ Start:
 ; ReadPassword  func to read password from stdin to buffer
 ; Entry:        None
 ; Exit:         InputPassword - buffer from stdin
-; Destroy:
+; Destroy:      cx, ax, di,
 ;------------------------------------------------------------------------------
 ReadPassword    proc
                 mov  cx, 11                     ; cx = number of symbols
