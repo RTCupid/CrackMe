@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 4.1	    02/28/25 16:57:15	    Page 1
+Turbo Assembler	 Version 4.1	    02/28/25 18:44:47	    Page 1
 crackme.asm
 
 
@@ -13,37 +13,82 @@ crackme.asm
       8				     org     100h
       9
      10	0100			     Start:
-     11	0100  E8 0005				     call ReadPassword		     ; read password from
+     11	0100  E8 0018				     call ReadPassword		     ; read password from
      12										     ; stdin to	check it
-     13
-     14	0103  B8 4C00				     mov  ax, 4c00h		     ; DOS Fn 4ch = exit (al)
-     15	0106  CD 21				     int  21h
-     16
-     17				     ;------------------------------------------------------------------------------
-     18				     ; ReadPassword  func to read password from	stdin to buffer
-     19				     ; Entry:
-     20				     ; Exit:
-     21				     ; Destroy:
-     22				     ;------------------------------------------------------------------------------
-     23	0108			     ReadPassword    proc
-     24	0108  B4 07				     mov  ah, 07h		     ; DOS Fn 07H = No echo
-     25										     ; unfiltered console input
-     26	010A  CD 21				     int  21h			     ; call Fn 07H
-     27										     ; al = input symbol
-     28	010C  BB B800				     mov  bx, 0b800h		     ; bx = videoseg
-     29	010F  8E C3				     mov  es, bx		     ; es = bx
-     30
-     31	0111  B4 66				     mov  ah, 66h		     ; blue color
-     32	0113  BF 0348				     mov  di, 80 * 5 * 2 + 20 *	2    ; offset
-     33
-     34	0116  AB				     stosw
-     35
-     36	0117  C3				     ret
-     37	0118			     ReadPassword    endp
-     38				     ;------------------------------------------------------------------------------
-     39
-     40				     End	     Start
-Turbo Assembler	 Version 4.1	    02/28/25 16:57:15	    Page 2
+     13	0103  B4 09				     mov  ah, 09h		     ;-----------------------
+     14	0105  BE 0136r				     lea  si, InputPassword	     ;			    |
+     15	0108  B9 000B				     mov  cx, 11		     ; attributes for	    |
+     16	010B  BF 065E				     mov  di, 80 * 2 * 10 + 15 * 2   ;	     string	    |
+     17	010E  BB B800				     mov  bx, 0b800h		     ;			    |
+     18	0111  8E C3				     mov  es, bx		     ;-----------------------
+     19
+     20	0113  E8 001A				     call PutString		     ; output string to	videoseg
+     21
+     22
+     23	0116  B8 4C00				     mov  ax, 4c00h		     ; DOS Fn 4ch = exit (al)
+     24	0119  CD 21				     int  21h
+     25
+     26				     ;------------------------------------------------------------------------------
+     27				     ; ReadPassword  func to read password from	stdin to buffer
+     28				     ; Entry:	     None
+     29				     ; Exit:	     InputPassword - buffer from stdin
+     30				     ; Destroy:
+     31				     ;------------------------------------------------------------------------------
+     32	011B			     ReadPassword    proc
+     33	011B  B9 000B				     mov  cx, 11		     ; cx = number of symbols
+     34										     ; in password
+     35	011E  BF 0136r				     mov  di, offset InputPassword   ; offset
+     36	0121  B4 07				     mov  ah, 07h		     ; DOS Fn 07H: No echo
+     37										     ; unfiltered console input
+     38	0123			     NewChar:
+     39	0123  CD 21				     int  21h			     ; call Fn 07H
+     40										     ; al = input symbol
+     41	0125  2E: 88 05				     mov  cs:[di], al		     ; write to	buffer InputPassword
+     42	0128  47				     inc  di			     ; di++
+     43
+     44	0129  E2 F8				     loop NewChar		     ; while (--cx) goto NewChar
+     45	012B  2E: C6 05	24			     mov  byte ptr cs:[di], '$'	     ; write to	InputPassword
+     46										     ; end symbol '$'
+     47	012F  C3				     ret
+     48	0130			     ReadPassword    endp
+     49				     ;------------------------------------------------------------------------------
+     50				     ;------------------------------------------------------------------------------
+     51				     ; PutString  Func to make string of frame
+     52				     ; Entry:	     ah	    - color of string
+     53				     ;		     si	    - array of symbol for string
+     54				     ;		     cx	    - len of string
+     55				     ;		     di	    - start of print string
+     56				     ;		     es	    - videoseg
+     57				     ; Exit:	     None
+Turbo Assembler	 Version 4.1	    02/28/25 18:44:47	    Page 2
+crackme.asm
+
+
+
+     58				     ; Destroy:	     di, si, al
+     59				     ;------------------------------------------------------------------------------
+     60	0130			     PutString	  proc
+     61
+     62	0130			     NewSymbolStr:
+     63	0130  AC				     lodsb			     ; ax = first symbol of string
+     64										     ; mov al, ds:[si] && inc si
+     65	0131  AB				     stosw			     ; mov es:[di], ax && di +=	2
+     66
+     67	0132  E2 FC				     loop NewSymbolStr		     ; while (--cx) goto NewSymbolStr
+     68
+     69	0134  C3				     ret
+     70	0135			     PutString	     endp
+     71
+     72				     ;------------------------------------------------------------------------------
+     73	0135  0B		     AdminPasswordLen db 11
+     74
+     75	0136  0C*(73)		     InputPassword   db	 12 dup	('s')
+     76
+     77	0142  50 4F 4C 54 4F 52	41+  AdminPassword   db	 "POLTORASHKA"
+     78	      53 48 4B 41
+     79
+     80				     End	     Start
+Turbo Assembler	 Version 4.1	    02/28/25 18:44:47	    Page 3
 Symbol Table
 
 
@@ -53,7 +98,7 @@ Symbol Name			  Type	 Value
 
 ??DATE				  Text	 "02/28/25"
 ??FILENAME			  Text	 "crackme "
-??TIME				  Text	 "16:57:15"
+??TIME				  Text	 "18:44:47"
 ??VERSION			  Number 040A
 @32BIT				  Text	 0
 @CODE				  Text	 DGROUP
@@ -67,12 +112,18 @@ Symbol Name			  Type	 Value
 @MODEL				  Text	 1
 @STACK				  Text	 DGROUP
 @WORDSIZE			  Text	 2
-READPASSWORD			  Near	 DGROUP:0108
+ADMINPASSWORD			  Byte	 DGROUP:0142
+ADMINPASSWORDLEN		  Byte	 DGROUP:0135
+INPUTPASSWORD			  Byte	 DGROUP:0136
+NEWCHAR				  Near	 DGROUP:0123
+NEWSYMBOLSTR			  Near	 DGROUP:0130
+PUTSTRING			  Near	 DGROUP:0130
+READPASSWORD			  Near	 DGROUP:011B
 START				  Near	 DGROUP:0100
 
 Groups & Segments		  Bit Size Align  Combine Class
 
 DGROUP				  Group
   _DATA				  16  0000 Word	  Public  DATA
-  _TEXT				  16  0118 Word	  Public  CODE
+  _TEXT				  16  014D Word	  Public  CODE
 
