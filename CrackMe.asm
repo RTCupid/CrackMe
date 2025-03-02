@@ -10,13 +10,10 @@ org     100h
 Start:
                 call ReadPassword               ; read password from
                                                 ; stdin to check it
-                mov  ah, 09h                    ;-----------------------
-                lea  si, InputPassword          ;                      |
-                mov  cx, 11                     ; attributes for       |
-                mov  di, 80 * 2 * 10 + 15 * 2   ;       string         |
-                mov  bx, 0b800h                 ;                      |
-                mov  es, bx                     ;-----------------------
 
+                                                ;-----------------------
+                lea  dx, InputPassword          ;                      |
+                                                ;-----------------------
                 call PutString                  ; output string to videoseg
 
 
@@ -49,25 +46,31 @@ ReadPassword    endp
 ;------------------------------------------------------------------------------
 ;------------------------------------------------------------------------------
 ; PutString  Func to make string of frame
-; Entry:        ah     - color of string
-;               si     - array of symbol for string
-;               cx     - len of string
-;               di     - start of print string
-;               es     - videoseg
+; Entry:        dx     - offset  array of symbol for string
 ; Exit:         None
 ; Destroy:      di, si, al
 ;------------------------------------------------------------------------------
-PutString    proc
+PutString       proc
+                mov  ah, 09h                    ; DOS Fn 09h = puts(dx)
 
-NewSymbolStr:
-                lodsb                           ; ax = first symbol of string
-                                                ; mov al, ds:[si] && inc si
-                stosw                           ; mov es:[di], ax && di += 2
-
-                loop NewSymbolStr               ; while (--cx) goto NewSymbolStr
+                int  21h                        ; call puts(dx)
 
                 ret
 PutString       endp
+
+;------------------------------------------------------------------------------
+; HashCounter   func to count hash of password
+; Entry:        si = ptr to string of password
+; Exit:         ax = hash of password
+; Destroy:      si, ax,
+;------------------------------------------------------------------------------
+HashCounter     proc
+
+
+
+
+                ret
+HashCounter     endp
 
 ;------------------------------------------------------------------------------
 AdminPasswordLen db 11
