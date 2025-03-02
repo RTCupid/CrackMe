@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 4.1	    03/02/25 16:10:28	    Page 1
+Turbo Assembler	 Version 4.1	    03/02/25 18:31:51	    Page 1
 crackme.asm
 
 
@@ -25,7 +25,7 @@ crackme.asm
      20				     ; Destroy:	     ax, bx, dx
      21				     ;------------------------------------------------------------------------------
      22	0108			     PasswordVerify  proc
-     23	0108  BB FFFE				     mov  bx, 0FFFEh			  ; bx = 0
+     23	0108  BB FF00				     mov  bx, 0FF00h		     ; bx = 0
      24	010B			     Retry:
      25	010B  BA 018Er				     lea  dx, AskPassword	     ; dx = request a password
      26	010E  E8 005C				     call PutString		     ; output string to	consol
@@ -60,7 +60,7 @@ crackme.asm
      55				     ;------------------------------------------------------------------------------
      56	012F			     CursorNewString proc
      57	012F  B4 02				     mov  ah, 02h		     ; Dos Fn 02h = Display Output
-Turbo Assembler	 Version 4.1	    03/02/25 16:10:28	    Page 2
+Turbo Assembler	 Version 4.1	    03/02/25 18:31:51	    Page 2
 crackme.asm
 
 
@@ -122,7 +122,7 @@ crackme.asm
     112	015A  80 FB 1C				     cmp  bl, 1ch		     ; if (al =	'Enter') {
     113	015D  74 0D				     je	  EndInput		     ; goto EndInput }
     114
-Turbo Assembler	 Version 4.1	    03/02/25 16:10:28	    Page 3
+Turbo Assembler	 Version 4.1	    03/02/25 18:31:51	    Page 3
 crackme.asm
 
 
@@ -184,7 +184,7 @@ crackme.asm
     169	      68 65 20 70 61 73	73+
     170	      77 6F 72 64 3A 20	24
     171
-Turbo Assembler	 Version 4.1	    03/02/25 16:10:28	    Page 4
+Turbo Assembler	 Version 4.1	    03/02/25 18:31:51	    Page 4
 crackme.asm
 
 
@@ -195,7 +195,7 @@ crackme.asm
     175	      53 50 49 52 54
     176
     177				     End	     Start
-Turbo Assembler	 Version 4.1	    03/02/25 16:10:28	    Page 5
+Turbo Assembler	 Version 4.1	    03/02/25 18:31:51	    Page 5
 Symbol Table
 
 
@@ -205,7 +205,7 @@ Symbol Name			  Type	 Value
 
 ??DATE				  Text	 "03/02/25"
 ??FILENAME			  Text	 "crackme "
-??TIME				  Text	 "16:10:28"
+??TIME				  Text	 "18:31:51"
 ??VERSION			  Number 040A
 @32BIT				  Text	 0
 @CODE				  Text	 DGROUP

@@ -20,7 +20,7 @@ Start:
 ; Destroy:      ax, bx, dx
 ;------------------------------------------------------------------------------
 PasswordVerify  proc
-                mov  bx, 0FFFEh                      ; bx = 0
+                mov  bx, 0FF00h                 ; bx = 0
 Retry:
                 lea  dx, AskPassword            ; dx = request a password
                 call PutString                  ; output string to consol
