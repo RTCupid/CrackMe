@@ -21,18 +21,17 @@ Start:
 ;------------------------------------------------------------------------------
 PasswordVerify  proc
                 mov  bx, 0                      ; bx = 0
-
+                mov  cx, 10                     ; cx = attempts counter
 Retry:
+                dec  cx                         ; cx--
+                je   EndAttempts
+                push cx                         ; save cx in stack
+
                 lea  dx, AskPassword            ; dx = request a password
                 call PutString                  ; output string to consol
 
                 call ReadPassword               ; read password from
-                                                ; stdin to check it
-                                                ;-----------------------
-                ;lea  dx, InputPassword          ;  dx = string to put  |
-                                                ;-----------------------
-                ;call PutString                  ; output string to consol
-
+                                                ; stdin to verify it
                 call CursorNewString            ; make cursor to new string
 
                 mov  ax, bx                     ; ax = bx
@@ -41,11 +40,18 @@ Retry:
                                                 ; and AdminPassword with len cx
                                                 ; bx += 1, if password is
                                                 ; incorrect
+                pop  cx                         ; back cx from stack
                 cmp  bx, ax                     ; if (bx > ax) {
                 ja   Retry                      ; goto Retry }
-
+                jmp  CorrectPassword            ; else goto CorrectPassword
+EndAttempts:
+                lea  dx, EndOfAttempts          ; you have run out of attempts
+                call PutString
+                call CursorNewString            ; make cursor to new string
+Correctpassword:
                 lea  dx, HelloAdmin             ; if password is right
                 call PutString                  ; "Hi, you got Admin rights!$"
+                call CursorNewString            ; make cursor to new string
 
                 ret
 PasswordVerify  endp
@@ -73,7 +79,7 @@ CursorNewString endp
 ;               bx  = old value of bx
 ; Exit:         bx  = old value of bx, if password is correct
 ;               bx += 1, if password is incorrect
-; Destroy:      bx (may be), si, di, DF
+; Destroy:      bx (may be), si, di, DF, cx
 ;------------------------------------------------------------------------------
 Verify          proc
                 cld                             ; DF = 0 (forward)
@@ -164,6 +170,8 @@ HashCounter     endp
 AdminPasswordLen db 12
 
 HelloAdmin      db  "Hi, you got Admin rights!$"
+
+EndOfAttempts   db  "You have run out of attempts!$"
 
 AskPassword     db  "Enter the password: $"
 
