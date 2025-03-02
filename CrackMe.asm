@@ -20,18 +20,15 @@ Start:
 ; Destroy:      ax, bx, dx
 ;------------------------------------------------------------------------------
 PasswordVerify  proc
-                mov  bx, 0                      ; bx = 0
-                mov  cx, 10                     ; cx = attempts counter
+                mov  bx, 0FFFEh                      ; bx = 0
 Retry:
-                dec  cx                         ; cx--
-                je   EndAttempts
-                push cx                         ; save cx in stack
-
                 lea  dx, AskPassword            ; dx = request a password
                 call PutString                  ; output string to consol
 
+                push bx                         ; save bx in stack
                 call ReadPassword               ; read password from
                                                 ; stdin to verify it
+                pop  bx                         ; back bx from stack
                 call CursorNewString            ; make cursor to new string
 
                 mov  ax, bx                     ; ax = bx
@@ -40,15 +37,9 @@ Retry:
                                                 ; and AdminPassword with len cx
                                                 ; bx += 1, if password is
                                                 ; incorrect
-                pop  cx                         ; back cx from stack
                 cmp  bx, ax                     ; if (bx > ax) {
                 ja   Retry                      ; goto Retry }
-                jmp  CorrectPassword            ; else goto CorrectPassword
-EndAttempts:
-                lea  dx, EndOfAttempts          ; you have run out of attempts
-                call PutString
-                call CursorNewString            ; make cursor to new string
-Correctpassword:
+
                 lea  dx, HelloAdmin             ; if password is right
                 call PutString                  ; "Hi, you got Admin rights!$"
                 call CursorNewString            ; make cursor to new string
@@ -100,7 +91,7 @@ Verify          endp
 ; Entry:        None
 ; Exit:         InputPassword - buffer from stdin
 ;               dx = len of input password
-; Destroy:      cx, ax, di
+; Destroy:      cx, ax, di, bx
 ;------------------------------------------------------------------------------
 ReadPassword    proc
                 mov  cx, 15                     ; cx = number of symbols
@@ -170,8 +161,6 @@ HashCounter     endp
 AdminPasswordLen db 12
 
 HelloAdmin      db  "Hi, you got Admin rights!$"
-
-EndOfAttempts   db  "You have run out of attempts!$"
 
 AskPassword     db  "Enter the password: $"
 
