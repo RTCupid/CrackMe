@@ -8,14 +8,15 @@
 org     100h
 
 Start:
+                lea  dx, AskPassword            ; dx = request a password
+                call PutString                  ; output string to consol
+
                 call ReadPassword               ; read password from
                                                 ; stdin to check it
-
                                                 ;-----------------------
-                lea  dx, InputPassword          ;                      |
+                lea  dx, InputPassword          ;  dx = string to put  |
                                                 ;-----------------------
-                call PutString                  ; output string to videoseg
-
+                call PutString                  ; output string to consol
 
                 mov  ax, 4c00h                  ; DOS Fn 4ch = exit (al)
                 int  21h
@@ -74,6 +75,8 @@ HashCounter     endp
 
 ;------------------------------------------------------------------------------
 AdminPasswordLen db 11
+
+AskPassword     db  "Enter the password: $"
 
 InputPassword   db  12 dup ('s')
 
