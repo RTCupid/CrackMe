@@ -23,22 +23,17 @@ PasswordVerify  proc
                 mov  bx, 0                      ; bx = 0
 
 Retry:
-                mov  ah, 02h                    ; Dos Fn 02h = Display Output
-                mov  dl, 13                     ; CR (cursor to the beginning
-                                                ; of the line)
-                int  21h
-                mov  dl, 10                     ; LF (cursor to next line)
-                int  21h
-
                 lea  dx, AskPassword            ; dx = request a password
                 call PutString                  ; output string to consol
 
                 call ReadPassword               ; read password from
                                                 ; stdin to check it
                                                 ;-----------------------
-                lea  dx, InputPassword          ;  dx = string to put  |
+                ;lea  dx, InputPassword          ;  dx = string to put  |
                                                 ;-----------------------
-                call PutString                  ; output string to consol
+                ;call PutString                  ; output string to consol
+
+                call CursorNewString            ; make cursor to new string
 
                 mov  ax, bx                     ; ax = bx
                 mov  cx, 12                     ; cx = 12 (len of password)
@@ -49,9 +44,28 @@ Retry:
                 cmp  bx, ax                     ; if (bx > ax) {
                 ja   Retry                      ; goto Retry }
 
+                lea  dx, HelloAdmin             ; if password is right
+                call PutString                  ; "Hi, you got Admin rights!$"
 
                 ret
 PasswordVerify  endp
+
+;------------------------------------------------------------------------------
+; CursorNewString func to make cursor to new string
+; Entry:        None
+; Exit:         None
+; Destroy:      ah, dl
+;------------------------------------------------------------------------------
+CursorNewString proc
+                mov  ah, 02h                    ; Dos Fn 02h = Display Output
+                mov  dl, 13                     ; CR (cursor to the beginning
+                                                ; of the line)
+                int  21h
+                mov  dl, 10                     ; LF (cursor to next line)
+                int  21h
+
+                ret
+CursorNewString endp
 
 ;------------------------------------------------------------------------------
 ; Verify        func to compare strings InputPassword and AdminPassword
@@ -85,16 +99,22 @@ ReadPassword    proc
                 mov  cx, 12                     ; cx = number of symbols
                                                 ; in password
                 mov  di, offset InputPassword   ; offset
+NewChar:
                 mov  ah, 07h                    ; DOS Fn 07H: No echo
                                                 ; unfiltered console input
-NewChar:
                 int  21h                        ; call Fn 07H
                                                 ; al = input symbol
                 mov  cs:[di], al                ; write to buffer InputPassword
                 inc  di                         ; di++
 
+                                                ;----------------------------
+                mov  ah, 02h                    ; DOS Fn 02h Display output |
+                                                ; write '*' when user       |
+                mov  dl, '*'                    ; write one symbol          |
+                int  21h                        ;----------------------------
+
                 loop NewChar                    ; while (--cx) goto NewChar
-                mov  byte ptr cs:[di], '$'      ; write to InputPassword
+                ;mov  byte ptr cs:[di], '$'      ; write to InputPassword
                                                 ; end symbol '$'
                 ret
 ReadPassword    endp
@@ -129,6 +149,8 @@ HashCounter     endp
 
 ;------------------------------------------------------------------------------
 AdminPasswordLen db 12
+
+HelloAdmin      db  "Hi, you got Admin rights!$"
 
 AskPassword     db  "Enter the password: $"
 
