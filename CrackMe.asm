@@ -93,17 +93,28 @@ Verify          endp
 ; ReadPassword  func to read password from stdin to buffer
 ; Entry:        None
 ; Exit:         InputPassword - buffer from stdin
+;               dx = len of input password
 ; Destroy:      cx, ax, di
 ;------------------------------------------------------------------------------
 ReadPassword    proc
-                mov  cx, 12                     ; cx = number of symbols
+                mov  cx, 15                     ; cx = number of symbols
                                                 ; in password
                 mov  di, offset InputPassword   ; offset
+
+                mov  dx, 0                      ; counter len of input password
 NewChar:
                 mov  ah, 07h                    ; DOS Fn 07H: No echo
                                                 ; unfiltered console input
                 int  21h                        ; call Fn 07H
                                                 ; al = input symbol
+                push ax                         ; save ax in stack
+                in   al, 60H                    ; read scan code from PPI port
+                                                ; al = symbol from 60H port
+                mov  bl, al                     ; bl = al
+                pop  ax                         ; back ax from stack
+                cmp  bl, 1ch                    ; if (al = 'Enter') {
+                je   EndInput                   ; goto EndInput }
+
                 mov  cs:[di], al                ; write to buffer InputPassword
                 inc  di                         ; di++
 
@@ -112,10 +123,12 @@ NewChar:
                                                 ; write '*' when user       |
                 mov  dl, '*'                    ; write one symbol          |
                 int  21h                        ;----------------------------
+                inc  dx                         ; dx++
 
                 loop NewChar                    ; while (--cx) goto NewChar
-                ;mov  byte ptr cs:[di], '$'      ; write to InputPassword
+                ;mov  byte ptr cs:[di], '$'     ; write to InputPassword
                                                 ; end symbol '$'
+EndInput:
                 ret
 ReadPassword    endp
 
@@ -154,7 +167,7 @@ HelloAdmin      db  "Hi, you got Admin rights!$"
 
 AskPassword     db  "Enter the password: $"
 
-InputPassword   db  12 dup ('s')
+InputPassword   db  15 dup ('s')
 
 AdminPassword   db  "KOGORTASPIRT"
 
