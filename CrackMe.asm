@@ -8,6 +8,28 @@
 org     100h
 
 Start:
+                call PasswordVerify             ; Start verify
+
+                mov  ax, 4c00h                  ; DOS Fn 4ch = exit (al)
+                int  21h
+
+;------------------------------------------------------------------------------
+; PasswordVerify func to request a password and verify it
+; Entry:        None
+; Exit:         None
+; Destroy:      ax, bx, dx
+;------------------------------------------------------------------------------
+PasswordVerify  proc
+                mov  bx, 0                      ; bx = 0
+
+Retry:
+                mov  ah, 02h                    ; Dos Fn 02h = Display Output
+                mov  dl, 13                     ; CR (cursor to the beginning
+                                                ; of the line)
+                int  21h
+                mov  dl, 10                     ; LF (cursor to next line)
+                int  21h
+
                 lea  dx, AskPassword            ; dx = request a password
                 call PutString                  ; output string to consol
 
@@ -18,17 +40,49 @@ Start:
                                                 ;-----------------------
                 call PutString                  ; output string to consol
 
-                mov  ax, 4c00h                  ; DOS Fn 4ch = exit (al)
-                int  21h
+                mov  ax, bx                     ; ax = bx
+                mov  cx, 12                     ; cx = 12 (len of password)
+                call Verify                     ; compare strings InputPassword
+                                                ; and AdminPassword with len cx
+                                                ; bx += 1, if password is
+                                                ; incorrect
+                cmp  bx, ax                     ; if (bx > ax) {
+                ja   Retry                      ; goto Retry }
+
+
+                ret
+PasswordVerify  endp
+
+;------------------------------------------------------------------------------
+; Verify        func to compare strings InputPassword and AdminPassword
+; Entry:        cx  = len of password
+;               bx  = old value of bx
+; Exit:         bx  = old value of bx, if password is correct
+;               bx += 1, if password is incorrect
+; Destroy:      bx (may be), si, di, DF
+;------------------------------------------------------------------------------
+Verify          proc
+                cld                             ; DF = 0 (forward)
+                lea  si, InputPassword          ; preparation
+                lea  di, AdminPassword          ; for cmpsb
+
+                repe cmpsb                      ;  cmp while equal
+                                                ; (max cx symbols)
+                                                ; if (strings is different) {
+                je   Equal                      ; goto NoEqual }
+                inc  bx                         ; bx += 1 anyway
+Equal:
+                ret
+Verify          endp
 
 ;------------------------------------------------------------------------------
 ; ReadPassword  func to read password from stdin to buffer
 ; Entry:        None
 ; Exit:         InputPassword - buffer from stdin
-; Destroy:      cx, ax, di,
+; Destroy:      cx, ax, di
 ;------------------------------------------------------------------------------
 ReadPassword    proc
-                mov  cx, 11                     ; cx = number of symbols
+                mov  cx, 12                     ; cx = number of symbols
                                                 ; in password
                 mov  di, offset InputPassword   ; offset
                 mov  ah, 07h                    ; DOS Fn 07H: No echo
@@ -44,12 +98,12 @@ NewChar:
                                                 ; end symbol '$'
                 ret
 ReadPassword    endp
-;------------------------------------------------------------------------------
+
 ;------------------------------------------------------------------------------
 ; PutString  Func to make string of frame
 ; Entry:        dx     - offset  array of symbol for string
 ; Exit:         None
-; Destroy:      di, si, al
+; Destroy:      ah
 ;------------------------------------------------------------------------------
 PutString       proc
                 mov  ah, 09h                    ; DOS Fn 09h = puts(dx)
@@ -74,13 +128,13 @@ HashCounter     proc
 HashCounter     endp
 
 ;------------------------------------------------------------------------------
-AdminPasswordLen db 11
+AdminPasswordLen db 12
 
 AskPassword     db  "Enter the password: $"
 
 InputPassword   db  12 dup ('s')
 
-AdminPassword   db  "POLTORASHKA"
+AdminPassword   db  "KOGORTASPIRT"
 
 End             Start
 ;------------------------------------------------------------------------------
