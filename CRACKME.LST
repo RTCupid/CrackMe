@@ -1,4 +1,4 @@
-Turbo Assembler	 Version 4.1	    03/03/25 18:31:00	    Page 1
+Turbo Assembler	 Version 4.1	    03/03/25 19:42:35	    Page 1
 crackme.asm
 
 
@@ -13,212 +13,213 @@ crackme.asm
       8				     org     100h
       9
      10	0100			     Start:
-     11	0100  BE 01E4r				     lea  si, AdminPassword	     ; si  = AdminPassword
+     11	0100  E8 0005				     call PasswordVerify	     ; Start verify
      12
-     13	0103  E8 0082				     call HashCounter		     ; Count hash AdminPassword
-     14
-     15	0106  E8 0005				     call PasswordVerify	     ; Start verify
-     16
-     17	0109  B8 4C00				     mov  ax, 4c00h		     ; DOS Fn 4ch = exit (al)
-     18	010C  CD 21				     int  21h
-     19
-     20				     ;------------------------------------------------------------------------------
-     21				     ; PasswordVerify func to request a	password and verify it
-     22				     ; Entry:	     None
-     23				     ; Exit:	     None
-     24				     ; Destroy:	     ax, bx, dx
-     25				     ;------------------------------------------------------------------------------
-     26	010E			     PasswordVerify  proc
-     27	010E  BB FF00				     mov  bx, 0FF00h		     ; bx = 0
-     28	0111			     Retry:
-     29	0111  BA 01B8r				     lea  dx, AskPassword	     ; dx = request a password
-     30	0114  E8 006C				     call PutString		     ; output string to	consol
-     31
-     32				     ;---------------Input-Password-------------------------------------------------
-     33	0117  53				     push bx			     ; save bx in stack
-     34	0118  E8 0039				     call ReadPassword		     ; read password from
-     35										     ; stdin to	verify it
-     36	011B  5B				     pop  bx			     ; back bx from stack
+     13	0103  B8 4C00				     mov  ax, 4c00h		     ; DOS Fn 4ch = exit (al)
+     14	0106  CD 21				     int  21h
+     15
+     16				     ;------------------------------------------------------------------------------
+     17				     ; PasswordVerify func to request a	password and verify it
+     18				     ; Entry:	     None
+     19				     ; Exit:	     None
+     20				     ; Destroy:	     ax, bx, dx
+     21				     ;------------------------------------------------------------------------------
+     22	0108			     PasswordVerify  proc
+     23	0108  BB FF00				     mov  bx, 0FF00h		     ; bx = 0
+     24	010B			     Retry:
+     25	010B  BA 01B2r				     lea  dx, AskPassword	     ; dx = request a password
+     26	010E  E8 006C				     call PutString		     ; output string to	consol
+     27
+     28				     ;---------------Input-Password-------------------------------------------------
+     29	0111  53				     push bx			     ; save bx in stack
+     30	0112  E8 0039				     call ReadPassword		     ; read password from
+     31										     ; stdin to	verify it
+     32	0115  5B				     pop  bx			     ; back bx from stack
+     33
+     34				     ;---------------Check-Is-Quit-Or-Not-------------------------------------------
+     35	0116  80 3E 01CEr 01			     cmp  IsQuit, 1		     ; if (IsQuit = 1) {
+     36	011B  74 1D				     je	  UnLuckVerify		     ; goto UnLuckVerify }
      37
-     38				     ;---------------Check-Is-Quit-Or-Not-------------------------------------------
-     39	011C  80 3E 01D4r 01			     cmp  IsQuit, 1		     ; if (IsQuit = 1) {
-     40	0121  74 18				     je	  UnLuckVerify		     ; goto UnLuckVerify }
+     38				     ;---------------End-Check------------------------------------------------------
+     39
+     40	011D  E8 001B				     call CursorNewString	     ; make cursor to new string
      41
-     42				     ;---------------End-Check------------------------------------------------------
-     43
-     44	0123  E8 0016				     call CursorNewString	     ; make cursor to new string
+     42	0120  8B C3				     mov  ax, bx		     ; ax = bx
+     43				     ;---------------Count-Hash-and-Verify-Password---------------------------------
+     44	0122  50				     push ax			     ; save ax in stack
      45
-     46	0126  8B C3				     mov  ax, bx		     ; ax = bx
-     47	0128  B9 000C				     mov  cx, 12		     ; cx = 12 (len of password)
-     48	012B  E8 0019				     call Verify		     ; compare strings InputPassword
-     49										     ; and AdminPassword with len cx
-     50										     ; bx += 1,	if password is
-     51										     ; incorrect
-     52	012E  3B D8				     cmp  bx, ax		     ; if (bx >	ax) {
-     53	0130  77 DF				     ja	  Retry			     ; goto Retry }
-     54
-     55	0132  BA 019Er				     lea  dx, HelloAdmin	     ; if password is right
-     56	0135  E8 004B				     call PutString		     ; "Hi, you	got Admin rights!$"
-     57	0138  E8 0001				     call CursorNewString	     ; make cursor to new string
-Turbo Assembler	 Version 4.1	    03/03/25 18:31:00	    Page 2
+     46	0123  BE 01CFr				     lea  si, InputPassword	     ; si  = InputPassword
+     47
+     48	0126  E8 0059				     call HashCounter		     ; Count hash InputPassword
+     49										     ; di = hash of InputPassword
+     50	0129  58				     pop  ax			     ; back ax from stack
+     51
+     52	012A  E8 0019				     call Verify		     ; compare strings InputPassword
+     53										     ; and AdminPassword with len cx
+     54										     ; bx += 1,	if password is
+     55										     ; incorrect
+     56	012D  3B D8				     cmp  bx, ax		     ; if (bx >	ax) {
+     57	012F  77 DA				     ja	  Retry			     ; goto Retry }
+Turbo Assembler	 Version 4.1	    03/03/25 19:42:35	    Page 2
 crackme.asm
 
 
 
-     58	013B			     UnLuckVerify:
-     59
-     60	013B  C3				     ret
-     61	013C			     PasswordVerify  endp
-     62
-     63				     ;------------------------------------------------------------------------------
-     64				     ; CursorNewString func to make cursor to new string
-     65				     ; Entry:	     None
-     66				     ; Exit:	     None
-     67				     ; Destroy:	     ah, dl
-     68				     ;------------------------------------------------------------------------------
-     69	013C			     CursorNewString proc
-     70	013C  B4 02				     mov  ah, 02h		     ; Dos Fn 02h = Display Output
-     71	013E  B2 0D				     mov  dl, 13		     ; CR (cursor to the beginning
-     72										     ; of the line)
-     73	0140  CD 21				     int  21h
-     74	0142  B2 0A				     mov  dl, 10		     ; LF (cursor to next line)
-     75	0144  CD 21				     int  21h
-     76
-     77	0146  C3				     ret
-     78	0147			     CursorNewString endp
-     79
-     80				     ;------------------------------------------------------------------------------
-     81				     ; Verify	     func to compare strings InputPassword and AdminPassword
-     82				     ; Entry:	     cx	 = len of password
-     83				     ;		     bx	 = old value of	bx
-     84				     ; Exit:	     bx	 = old value of	bx, if password	is correct
-     85				     ;		     bx	+= 1, if password is incorrect
-     86				     ; Destroy:	     bx	(may be), si, di, DF, cx
-     87				     ;------------------------------------------------------------------------------
-     88	0147			     Verify	     proc
-     89	0147  FC				     cld			     ; DF = 0 (forward)
-     90	0148  BE 01D5r				     lea  si, InputPassword	     ; preparation
-     91	014B  BF 01E4r				     lea  di, AdminPassword	     ; for cmpsb
-     92
-     93	014E  F3> A6				     repe cmpsb			     ;	cmp while equal
-     94										     ; (max cx symbols)
-     95										     ; if (strings is different) {
-     96	0150  74 01				     je	  Equal			     ; goto NoEqual }
-     97	0152  43				     inc  bx			     ; bx += 1 anyway
-     98	0153			     Equal:
-     99	0153  C3				     ret
-    100	0154			     Verify	     endp
-    101
-    102				     ;------------------------------------------------------------------------------
-    103				     ; ReadPassword  func to read password from	stdin to buffer
-    104				     ; Entry:	     None
-    105				     ; Exit:	     InputPassword - buffer from stdin
-    106				     ; Destroy:	     cx, ax, di, dx, bx
-    107				     ;------------------------------------------------------------------------------
-    108	0154			     ReadPassword    proc
-    109	0154  B9 000F				     mov  cx, 15		     ; cx = number of symbols
-    110										     ; in password
-    111	0157  BF 01D5r				     mov  di, offset InputPassword   ; offset
-    112	015A			     NewChar:
-    113	015A  B4 07				     mov  ah, 07h		     ; DOS Fn 07H: No echo
-    114										     ; unfiltered console input
-Turbo Assembler	 Version 4.1	    03/03/25 18:31:00	    Page 3
+     58
+     59	0131  BA 0198r				     lea  dx, HelloAdmin	     ; if password is right
+     60	0134  E8 0046				     call PutString		     ; "Hi, you	got Admin rights!$"
+     61	0137  E8 0001				     call CursorNewString	     ; make cursor to new string
+     62	013A			     UnLuckVerify:
+     63
+     64	013A  C3				     ret
+     65	013B			     PasswordVerify  endp
+     66
+     67				     ;------------------------------------------------------------------------------
+     68				     ; CursorNewString func to make cursor to new string
+     69				     ; Entry:	     None
+     70				     ; Exit:	     None
+     71				     ; Destroy:	     ah, dl
+     72				     ;------------------------------------------------------------------------------
+     73	013B			     CursorNewString proc
+     74	013B  B4 02				     mov  ah, 02h		     ; Dos Fn 02h = Display Output
+     75	013D  B2 0D				     mov  dl, 13		     ; CR (cursor to the beginning
+     76										     ; of the line)
+     77	013F  CD 21				     int  21h
+     78	0141  B2 0A				     mov  dl, 10		     ; LF (cursor to next line)
+     79	0143  CD 21				     int  21h
+     80
+     81	0145  C3				     ret
+     82	0146			     CursorNewString endp
+     83
+     84				     ;------------------------------------------------------------------------------
+     85				     ; Verify	     func to compare strings InputPassword and AdminPassword
+     86				     ; Entry:	     di	 = hash	of InputPassword
+     87				     ;		     bx	 = old value of	bx
+     88				     ; Exit:	     bx	 = old value of	bx, if password	is correct
+     89				     ;		     bx	+= 1, if password is incorrect
+     90				     ; Destroy:	     bx	(may be)
+     91				     ;------------------------------------------------------------------------------
+     92	0146			     Verify	     proc
+     93	0146  3B 3E 01DEr			     cmp  di, AdminPassword	     ; if (di =	AdminPassword (hash)) {
+     94	014A  74 01				     je	  Equal			     ; goto NoEqual }
+     95	014C  43				     inc  bx			     ; bx += 1 anyway
+     96	014D			     Equal:
+     97	014D  C3				     ret
+     98	014E			     Verify	     endp
+     99
+    100				     ;------------------------------------------------------------------------------
+    101				     ; ReadPassword  func to read password from	stdin to buffer
+    102				     ; Entry:	     None
+    103				     ; Exit:	     InputPassword - buffer from stdin
+    104				     ; Destroy:	     cx, ax, di, dx, bx
+    105				     ;------------------------------------------------------------------------------
+    106	014E			     ReadPassword    proc
+    107	014E  B9 000F				     mov  cx, 15		     ; cx = number of symbols
+    108										     ; in password
+    109	0151  BF 01CFr				     mov  di, offset InputPassword   ; offset
+    110	0154			     NewChar:
+    111	0154  B4 07				     mov  ah, 07h		     ; DOS Fn 07H: No echo
+    112										     ; unfiltered console input
+    113	0156  CD 21				     int  21h			     ; call Fn 07H
+    114										     ; al = input symbol
+Turbo Assembler	 Version 4.1	    03/03/25 19:42:35	    Page 3
 crackme.asm
 
 
 
-    115	015C  CD 21				     int  21h			     ; call Fn 07H
-    116										     ; al = input symbol
-    117				     ;---------------Check-[q]-quit-------------------------------------------------
-    118	015E  3C 71				     cmp  al, 'q'		     ; if (al != 'q') {
-    119	0160  75 09				     jne  ContinueInput		     ; goto ContinueInput }
-    120	0162  C6 06 01D4r 01 90			     mov  IsQuit, 1		     ; IsQuit =	1
-    121	0168  EB 18 90				     jmp  EndInput		     ; goto EndInput
-    122				     ;---------------Check-[q]-quit-------------------------------------------------
-    123	016B			     ContinueInput:
-    124				     ;---------------Check-Enter----------------------------------------------------
-    125	016B  50				     push ax			     ; save ax in stack
-    126	016C  E4 60				     in	  al, 60H		     ; read scan code from PPI port
-    127										     ; al = symbol from	60H port
-    128	016E  8A D8				     mov  bl, al		     ; bl = al
-    129	0170  58				     pop  ax			     ; back ax from stack
-    130	0171  80 FB 1C				     cmp  bl, 1ch		     ; if (al =	'Enter') {
-    131	0174  74 0C				     je	  EndInput		     ; goto EndInput }
-    132				     ;---------------End-Check-Enter------------------------------------------------
-    133	0176  2E: 88 05				     mov  cs:[di], al		     ; al to buffer InputPassword
-    134	0179  47				     inc  di			     ; di++
-    135										     ;----------------------------
-    136	017A  B4 02				     mov  ah, 02h		     ; DOS Fn 02h Display output |
-    137										     ; write '*' when user	 |
-    138	017C  B2 2A				     mov  dl, '*'		     ; write symbol		 |
-    139	017E  CD 21				     int  21h			     ;----------------------------
-    140
-    141	0180  E2 D8				     loop NewChar		     ; while (--cx) goto NewChar
-    142	0182			     EndInput:
-    143	0182  C3				     ret
-    144	0183			     ReadPassword    endp
-    145
-    146				     ;------------------------------------------------------------------------------
-    147				     ; PutString  Func to make string of frame
-    148				     ; Entry:	     dx	    - offset  array of symbol for string
-    149				     ; Exit:	     None
-    150				     ; Destroy:	     ah
-    151				     ;------------------------------------------------------------------------------
-    152	0183			     PutString	     proc
-    153	0183  B4 09				     mov  ah, 09h		     ; DOS Fn 09h = puts(dx)
+    115				     ;---------------Check-[q]-quit-------------------------------------------------
+    116	0158  3C 71				     cmp  al, 'q'		     ; if (al != 'q') {
+    117	015A  75 09				     jne  ContinueInput		     ; goto ContinueInput }
+    118	015C  C6 06 01CEr 01 90			     mov  IsQuit, 1		     ; IsQuit =	1
+    119	0162  EB 18 90				     jmp  EndInput		     ; goto EndInput
+    120				     ;---------------Check-[q]-quit-------------------------------------------------
+    121	0165			     ContinueInput:
+    122				     ;---------------Check-Enter----------------------------------------------------
+    123	0165  50				     push ax			     ; save ax in stack
+    124	0166  E4 60				     in	  al, 60H		     ; read scan code from PPI port
+    125										     ; al = symbol from	60H port
+    126	0168  8A D8				     mov  bl, al		     ; bl = al
+    127	016A  58				     pop  ax			     ; back ax from stack
+    128	016B  80 FB 1C				     cmp  bl, 1ch		     ; if (al =	'Enter') {
+    129	016E  74 0C				     je	  EndInput		     ; goto EndInput }
+    130				     ;---------------End-Check-Enter------------------------------------------------
+    131	0170  2E: 88 05				     mov  cs:[di], al		     ; al to buffer InputPassword
+    132	0173  47				     inc  di			     ; di++
+    133										     ;----------------------------
+    134	0174  B4 02				     mov  ah, 02h		     ; DOS Fn 02h Display output |
+    135										     ; write '*' when user	 |
+    136	0176  B2 2A				     mov  dl, '*'		     ; write symbol		 |
+    137	0178  CD 21				     int  21h			     ;----------------------------
+    138
+    139	017A  E2 D8				     loop NewChar		     ; while (--cx) goto NewChar
+    140	017C			     EndInput:
+    141	017C  C3				     ret
+    142	017D			     ReadPassword    endp
+    143
+    144				     ;------------------------------------------------------------------------------
+    145				     ; PutString  Func to make string of frame
+    146				     ; Entry:	     dx	    - offset  array of symbol for string
+    147				     ; Exit:	     None
+    148				     ; Destroy:	     ah
+    149				     ;------------------------------------------------------------------------------
+    150	017D			     PutString	     proc
+    151	017D  B4 09				     mov  ah, 09h		     ; DOS Fn 09h = puts(dx)
+    152
+    153	017F  CD 21				     int  21h			     ; call puts(dx)
     154
-    155	0185  CD 21				     int  21h			     ; call puts(dx)
-    156
-    157	0187  C3				     ret
-    158	0188			     PutString	     endp
-    159
-    160				     ;------------------------------------------------------------------------------
-    161				     ; HashCounter   func to count hash	of password
-    162				     ; Entry:	     si	= ptr to string	of password
-    163				     ; Exit:	     bx	= hash of password
-    164				     ; Destroy:	     si, ax, bx
-    165				     ;------------------------------------------------------------------------------
-    166	0188			     HashCounter     proc
-    167	0188  33 DB				     xor  bx, bx		     ; bx  = 0
-    168	018A  33 C0				     xor  ax, ax		     ; ax  = 0
-    169	018C  B9 000F				     mov  cx, 15		     ; cx  = len buffer
-    170	018F			     HashCount:
-    171	018F  AC				     lodsb			     ; mov al, ds:[si] && inc si
-Turbo Assembler	 Version 4.1	    03/03/25 18:31:00	    Page 4
+    155	0181  C3				     ret
+    156	0182			     PutString	     endp
+    157
+    158				     ;------------------------------------------------------------------------------
+    159				     ; HashCounter   func to count hash	of password
+    160				     ; Entry:	     si	= ptr to string	of password
+    161				     ; Exit:	     di	= hash of password
+    162				     ; Destroy:	     si, ax, di, cx
+    163				     ;------------------------------------------------------------------------------
+    164	0182			     HashCounter     proc
+    165	0182  33 FF				     xor  di, di		     ; di  = 0
+    166	0184  33 C0				     xor  ax, ax		     ; ax  = 0
+    167	0186  B9 000F				     mov  cx, 15		     ; cx  = len buffer
+    168	0189			     HashCount:
+    169	0189  AC				     lodsb			     ; mov al, ds:[si] && inc si
+    170	018A  D1 E8 D1 E8 D1 E8	D1+		     shr  ax, 4			     ; ax > 4 (____0101)
+    171	      E8
+Turbo Assembler	 Version 4.1	    03/03/25 19:42:35	    Page 4
 crackme.asm
 
 
 
-    172	0190  D1 E8 D1 E8 D1 E8	D1+		     shr  ax, 4			     ; ax > 4 (____0101)
-    173	      E8
-    174	0198  03 D8				     add  bx, ax		     ; bx += ax
-    175	019A  E2 F3				     loop HashCount		     ; while (--cx) goto HashCount
-    176
-    177	019C  C3				     ret
-    178	019D			     HashCounter     endp
-    179
-    180				     ;------------------------------------------------------------------------------
-    181	019D  0C		     AdminPasswordLen db 12
-    182
-    183	019E  48 69 2C 20 79 6F	75+  HelloAdmin	     db	 "Hi, you got Admin rights!$"
-    184	      20 67 6F 74 20 41	64+
-    185	      6D 69 6E 20 72 69	67+
-    186	      68 74 73 21 24
-    187
-    188	01B8  45 6E 74 65 72 20	74+  AskPassword     db	 "Enter	the password or	[q]: $"
-    189	      68 65 20 70 61 73	73+
-    190	      77 6F 72 64 20 6F	72+
-    191	      20 5B 71 5D 3A 20	24
+    172	0192  03 F8				     add  di, ax		     ; di += ax
+    173	0194  E2 F3				     loop HashCount		     ; while (--cx) goto HashCount
+    174
+    175	0196  C3				     ret
+    176	0197			     HashCounter     endp
+    177
+    178				     ;------------------------------------------------------------------------------
+    179	0197  0C		     AdminPasswordLen db 12
+    180
+    181	0198  48 69 2C 20 79 6F	75+  HelloAdmin	     db	 "Hi, you got Admin rights!$"
+    182	      20 67 6F 74 20 41	64+
+    183	      6D 69 6E 20 72 69	67+
+    184	      68 74 73 21 24
+    185
+    186	01B2  45 6E 74 65 72 20	74+  AskPassword     db	 "Enter	the password or	[q]: $"
+    187	      68 65 20 70 61 73	73+
+    188	      77 6F 72 64 20 6F	72+
+    189	      20 5B 71 5D 3A 20	24
+    190
+    191	01CE  00		     Isquit	     db	 0
     192
-    193	01D4  00		     Isquit	     db	 0
+    193	01CF  0F*(53)		     InputPassword   db	 15 dup	('S')
     194
-    195	01D5  0F*(73)		     InputPassword   db	 15 dup	('s')
+    195	01DE  0045		     AdminPassword   dw	 0045h
     196
-    197	01E4  4B 4F 47 4F 52 54	41+  AdminPassword   db	 "KOGORTASPIRT"
-    198	      53 50 49 52 54
-    199
-    200				     End	     Start
-Turbo Assembler	 Version 4.1	    03/03/25 18:31:00	    Page 5
+    197	01E0  4B 4F 47 4F 52 54	41+  AdminPasswordSSS	db  "KOGORTASPIRTSSS"
+    198	      53 50 49 52 54 53	53+
+    199	      53
+    200
+    201				     End	     Start
+Turbo Assembler	 Version 4.1	    03/03/25 19:42:35	    Page 5
 Symbol Table
 
 
@@ -228,7 +229,7 @@ Symbol Name			  Type	 Value
 
 ??DATE				  Text	 "03/03/25"
 ??FILENAME			  Text	 "crackme "
-??TIME				  Text	 "18:31:00"
+??TIME				  Text	 "19:42:35"
 ??VERSION			  Number 040A
 @32BIT				  Text	 0
 @CODE				  Text	 DGROUP
@@ -242,30 +243,31 @@ Symbol Name			  Type	 Value
 @MODEL				  Text	 1
 @STACK				  Text	 DGROUP
 @WORDSIZE			  Text	 2
-ADMINPASSWORD			  Byte	 DGROUP:01E4
-ADMINPASSWORDLEN		  Byte	 DGROUP:019D
-ASKPASSWORD			  Byte	 DGROUP:01B8
-CONTINUEINPUT			  Near	 DGROUP:016B
-CURSORNEWSTRING			  Near	 DGROUP:013C
-ENDINPUT			  Near	 DGROUP:0182
-EQUAL				  Near	 DGROUP:0153
-HASHCOUNT			  Near	 DGROUP:018F
-HASHCOUNTER			  Near	 DGROUP:0188
-HELLOADMIN			  Byte	 DGROUP:019E
-INPUTPASSWORD			  Byte	 DGROUP:01D5
-ISQUIT				  Byte	 DGROUP:01D4
-NEWCHAR				  Near	 DGROUP:015A
-PASSWORDVERIFY			  Near	 DGROUP:010E
-PUTSTRING			  Near	 DGROUP:0183
-READPASSWORD			  Near	 DGROUP:0154
-RETRY				  Near	 DGROUP:0111
+ADMINPASSWORD			  Word	 DGROUP:01DE
+ADMINPASSWORDLEN		  Byte	 DGROUP:0197
+ADMINPASSWORDSSS		  Byte	 DGROUP:01E0
+ASKPASSWORD			  Byte	 DGROUP:01B2
+CONTINUEINPUT			  Near	 DGROUP:0165
+CURSORNEWSTRING			  Near	 DGROUP:013B
+ENDINPUT			  Near	 DGROUP:017C
+EQUAL				  Near	 DGROUP:014D
+HASHCOUNT			  Near	 DGROUP:0189
+HASHCOUNTER			  Near	 DGROUP:0182
+HELLOADMIN			  Byte	 DGROUP:0198
+INPUTPASSWORD			  Byte	 DGROUP:01CF
+ISQUIT				  Byte	 DGROUP:01CE
+NEWCHAR				  Near	 DGROUP:0154
+PASSWORDVERIFY			  Near	 DGROUP:0108
+PUTSTRING			  Near	 DGROUP:017D
+READPASSWORD			  Near	 DGROUP:014E
+RETRY				  Near	 DGROUP:010B
 START				  Near	 DGROUP:0100
-UNLUCKVERIFY			  Near	 DGROUP:013B
-VERIFY				  Near	 DGROUP:0147
+UNLUCKVERIFY			  Near	 DGROUP:013A
+VERIFY				  Near	 DGROUP:0146
 
 Groups & Segments		  Bit Size Align  Combine Class
 
 DGROUP				  Group
   _DATA				  16  0000 Word	  Public  DATA
-  _TEXT				  16  01F0 Word	  Public  CODE
+  _TEXT				  16  01EF Word	  Public  CODE
 

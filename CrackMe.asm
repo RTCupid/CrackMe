@@ -8,10 +8,6 @@
 org     100h
 
 Start:
-                lea  si, AdminPassword          ; si  = AdminPassword
-
-                call HashCounter                ; Count hash AdminPassword
-
                 call PasswordVerify             ; Start verify
 
                 mov  ax, 4c00h                  ; DOS Fn 4ch = exit (al)
@@ -44,7 +40,15 @@ Retry:
                 call CursorNewString            ; make cursor to new string
 
                 mov  ax, bx                     ; ax = bx
-                mov  cx, 12                     ; cx = 12 (len of password)
+;---------------Count-Hash-and-Verify-Password---------------------------------
+                push ax                         ; save ax in stack
+
+                lea  si, InputPassword          ; si  = InputPassword
+
+                call HashCounter                ; Count hash InputPassword
+                                                ; di = hash of InputPassword
+                pop  ax                         ; back ax from stack
+
                 call Verify                     ; compare strings InputPassword
                                                 ; and AdminPassword with len cx
                                                 ; bx += 1, if password is
@@ -79,20 +83,14 @@ CursorNewString endp
 
 ;------------------------------------------------------------------------------
 ; Verify        func to compare strings InputPassword and AdminPassword
-; Entry:        cx  = len of password
+; Entry:        di  = hash of InputPassword
 ;               bx  = old value of bx
 ; Exit:         bx  = old value of bx, if password is correct
 ;               bx += 1, if password is incorrect
-; Destroy:      bx (may be), si, di, DF, cx
+; Destroy:      bx (may be)
 ;------------------------------------------------------------------------------
 Verify          proc
-                cld                             ; DF = 0 (forward)
-                lea  si, InputPassword          ; preparation
-                lea  di, AdminPassword          ; for cmpsb
-
-                repe cmpsb                      ;  cmp while equal
-                                                ; (max cx symbols)
-                                                ; if (strings is different) {
+                cmp  di, AdminPassword          ; if (di = AdminPassword (hash)) {
                 je   Equal                      ; goto NoEqual }
                 inc  bx                         ; bx += 1 anyway
 Equal:
@@ -160,17 +158,17 @@ PutString       endp
 ;------------------------------------------------------------------------------
 ; HashCounter   func to count hash of password
 ; Entry:        si = ptr to string of password
-; Exit:         bx = hash of password
-; Destroy:      si, ax, bx
+; Exit:         di = hash of password
+; Destroy:      si, ax, di, cx
 ;------------------------------------------------------------------------------
 HashCounter     proc
-                xor  bx, bx                     ; bx  = 0
+                xor  di, di                     ; di  = 0
                 xor  ax, ax                     ; ax  = 0
                 mov  cx, 15                     ; cx  = len buffer
 HashCount:
                 lodsb                           ; mov al, ds:[si] && inc si
                 shr  ax, 4                      ; ax > 4 (____0101)
-                add  bx, ax                     ; bx += ax
+                add  di, ax                     ; di += ax
                 loop HashCount                  ; while (--cx) goto HashCount
 
                 ret
@@ -185,9 +183,11 @@ AskPassword     db  "Enter the password or [q]: $"
 
 Isquit          db  0
 
-InputPassword   db  15 dup ('s')
+InputPassword   db  15 dup ('S')
 
-AdminPassword   db  "KOGORTASPIRT"
+AdminPassword   dw  0045h
+
+AdminPasswordSSS   db  "KOGORTASPIRTSSS"
 
 End             Start
 ;------------------------------------------------------------------------------
