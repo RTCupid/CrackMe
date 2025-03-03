@@ -35,7 +35,7 @@ Retry:
                 cmp  IsQuit, 1                  ; if (IsQuit = 1) {
                 je   UnLuckVerify               ; goto UnLuckVerify }
 
-;---------------End-Check------------------------------------------------------
+;---------------End-Check-Cursor-to-new-string---------------------------------
 
                 call CursorNewString            ; make cursor to new string
 
@@ -56,6 +56,7 @@ Retry:
                 cmp  bx, ax                     ; if (bx > ax) {
                 ja   Retry                      ; goto Retry }
 
+;---------------Giving-Admin-Rights--------------------------------------------
                 lea  dx, HelloAdmin             ; if password is right
                 call PutString                  ; "Hi, you got Admin rights!$"
                 call CursorNewString            ; make cursor to new string
@@ -104,7 +105,7 @@ Verify          endp
 ; Destroy:      cx, ax, di, dx, bx
 ;------------------------------------------------------------------------------
 ReadPassword    proc
-                mov  cx, 15                     ; cx = number of symbols
+                mov  word ptr cx, BufferLen     ; cx = number of symbols
                                                 ; in password
                 mov  di, offset InputPassword   ; offset
 NewChar:
@@ -127,9 +128,10 @@ ContinueInput:
                 pop  ax                         ; back ax from stack
                 cmp  bl, 1ch                    ; if (al = 'Enter') {
                 je   EndInput                   ; goto EndInput }
-;---------------End-Check-Enter------------------------------------------------
+;---------------Load-Input-Symbol-to-Buffer------------------------------------
                 mov  cs:[di], al                ; al to buffer InputPassword
                 inc  di                         ; di++
+;---------------Write-*--------------------------------------------------------
                                                 ;----------------------------
                 mov  ah, 02h                    ; DOS Fn 02h Display output |
                                                 ; write '*' when user       |
@@ -164,10 +166,10 @@ PutString       endp
 HashCounter     proc
                 xor  di, di                     ; di  = 0
                 xor  ax, ax                     ; ax  = 0
-                mov  cx, 15                     ; cx  = len buffer
+                mov  word ptr cx, BufferLen     ; cx  = len buffer
 HashCount:
                 lodsb                           ; mov al, ds:[si] && inc si
-                shr  ax, 4                      ; ax > 4 (____0101)
+                shr  ax, 4                      ; ax >> 4 (____0101)
                 add  di, ax                     ; di += ax
                 loop HashCount                  ; while (--cx) goto HashCount
 
@@ -175,7 +177,9 @@ HashCount:
 HashCounter     endp
 
 ;------------------------------------------------------------------------------
-AdminPasswordLen db 12
+InputPassword   db  15 dup ('S')
+
+BufferLen       dw  15
 
 HelloAdmin      db  "Hi, you got Admin rights!$"
 
@@ -183,11 +187,7 @@ AskPassword     db  "Enter the password or [q]: $"
 
 Isquit          db  0
 
-InputPassword   db  15 dup ('S')
-
 AdminPassword   dw  0045h
-
-AdminPasswordSSS   db  "KOGORTASPIRTSSS"
 
 End             Start
 ;------------------------------------------------------------------------------
