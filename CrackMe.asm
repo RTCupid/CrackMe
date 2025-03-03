@@ -26,12 +26,14 @@ Retry:
                 call PutString                  ; output string to consol
 
 ;---------------Input-Password-------------------------------------------------
+
                 push bx                         ; save bx in stack
                 call ReadPassword               ; read password from
                                                 ; stdin to verify it
                 pop  bx                         ; back bx from stack
 
 ;---------------Check-Is-Quit-Or-Not-------------------------------------------
+
                 cmp  IsQuit, 1                  ; if (IsQuit = 1) {
                 je   UnLuckVerify               ; goto UnLuckVerify }
 
@@ -39,24 +41,29 @@ Retry:
 
                 call CursorNewString            ; make cursor to new string
 
-                mov  ax, bx                     ; ax = bx
+                mov  dx, bx                     ; dx = bx
+
 ;---------------Count-Hash-and-Verify-Password---------------------------------
-                push ax                         ; save ax in stack
 
                 lea  si, InputPassword          ; si  = InputPassword
 
                 call HashCounter                ; Count hash InputPassword
                                                 ; di = hash of InputPassword
-                pop  ax                         ; back ax from stack
+                jmp  VerifyPassword             ; goto VerifyPassword
 
+                InputPassword   db  15 dup ('S'); buffer with input password
+VerifyPassword:
+                mov  dx, bx                     ; dx = bx (for hacking)
+                ;pop  ax                         ; back ax from stack
                 call Verify                     ; compare strings InputPassword
                                                 ; and AdminPassword with len cx
                                                 ; bx += 1, if password is
                                                 ; incorrect
-                cmp  bx, ax                     ; if (bx > ax) {
+                cmp  bx, dx                     ; if (bx > dx) {
                 ja   Retry                      ; goto Retry }
 
 ;---------------Giving-Admin-Rights--------------------------------------------
+
                 lea  dx, HelloAdmin             ; if password is right
                 call PutString                  ; "Hi, you got Admin rights!$"
                 call CursorNewString            ; make cursor to new string
@@ -105,7 +112,7 @@ Verify          endp
 ; Destroy:      cx, ax, di, dx, bx
 ;------------------------------------------------------------------------------
 ReadPassword    proc
-                mov  word ptr cx, BufferLen     ; cx = number of symbols
+                ;mov  word ptr cx, BufferLen     ; cx = number of symbols
                                                 ; in password
                 mov  di, offset InputPassword   ; offset
 NewChar:
@@ -138,7 +145,7 @@ ContinueInput:
                 mov  dl, '*'                    ; write symbol              |
                 int  21h                        ;----------------------------
 
-                loop NewChar                    ; while (--cx) goto NewChar
+                jmp  NewChar                    ; goto NewChar
 EndInput:
                 ret
 ReadPassword    endp
@@ -177,17 +184,16 @@ HashCount:
 HashCounter     endp
 
 ;------------------------------------------------------------------------------
-InputPassword   db  15 dup ('S')
 
 BufferLen       dw  15
 
 HelloAdmin      db  "Hi, you got Admin rights!$"
 
+AdminPassword   dw  0045h
+
 AskPassword     db  "Enter the password or [q]: $"
 
 Isquit          db  0
-
-AdminPassword   dw  0045h
 
 End             Start
 ;------------------------------------------------------------------------------
