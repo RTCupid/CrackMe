@@ -8,6 +8,10 @@
 org     100h
 
 Start:
+                lea  si, AdminPassword          ; si  = AdminPassword
+
+                call HashCounter                ; Count hash AdminPassword
+
                 call PasswordVerify             ; Start verify
 
                 mov  ax, 4c00h                  ; DOS Fn 4ch = exit (al)
@@ -110,14 +114,14 @@ NewChar:
                                                 ; unfiltered console input
                 int  21h                        ; call Fn 07H
                                                 ; al = input symbol
-;---------------Check-[q]-quit-----------------------------------------
+;---------------Check-[q]-quit-------------------------------------------------
                 cmp  al, 'q'                    ; if (al != 'q') {
                 jne  ContinueInput              ; goto ContinueInput }
                 mov  IsQuit, 1                  ; IsQuit = 1
                 jmp  EndInput                   ; goto EndInput
-;---------------Check-[q]-quit-----------------------------------------
+;---------------Check-[q]-quit-------------------------------------------------
 ContinueInput:
-;---------------Check-Enter--------------------------------------------
+;---------------Check-Enter----------------------------------------------------
                 push ax                         ; save ax in stack
                 in   al, 60H                    ; read scan code from PPI port
                                                 ; al = symbol from 60H port
@@ -125,7 +129,7 @@ ContinueInput:
                 pop  ax                         ; back ax from stack
                 cmp  bl, 1ch                    ; if (al = 'Enter') {
                 je   EndInput                   ; goto EndInput }
-;---------------End-Check-Enter----------------------------------------
+;---------------End-Check-Enter------------------------------------------------
                 mov  cs:[di], al                ; al to buffer InputPassword
                 inc  di                         ; di++
                                                 ;----------------------------
@@ -156,13 +160,18 @@ PutString       endp
 ;------------------------------------------------------------------------------
 ; HashCounter   func to count hash of password
 ; Entry:        si = ptr to string of password
-; Exit:         ax = hash of password
-; Destroy:      si, ax,
+; Exit:         bx = hash of password
+; Destroy:      si, ax, bx
 ;------------------------------------------------------------------------------
 HashCounter     proc
-
-
-
+                xor  bx, bx                     ; bx  = 0
+                xor  ax, ax                     ; ax  = 0
+                mov  cx, 15                     ; cx  = len buffer
+HashCount:
+                lodsb                           ; mov al, ds:[si] && inc si
+                shr  ax, 4                      ; ax > 4 (____0101)
+                add  bx, ax                     ; bx += ax
+                loop HashCount                  ; while (--cx) goto HashCount
 
                 ret
 HashCounter     endp
