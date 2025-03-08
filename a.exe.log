@@ -1,0 +1,93 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe, файл: C:\Users\19apr\Documents\TX\TXLib.h, строка: 13722, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0044371C (32-bit), Flags: CMdRe0, Thread: 0x3FA0 (Main), GetLastError(): 13 (???????????? ??????). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar  8 2025 15:32:59, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, Debug
+Started:	Mar 08 2025 15:33:01
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe, файл: C:\Users\19apr\Documents\TX\TXLib.h, строка: 13722, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0044371C (32-bit), Flags: CMdRe0, Thread: 0x28E8 (Main), GetLastError(): 13 (???????????? ??????). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar  8 2025 15:33:27, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, Debug
+Started:	Mar 08 2025 15:33:29
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe, файл: C:\Users\19apr\Documents\TX\TXLib.h, строка: 13722, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0044371C (32-bit), Flags: CMdRe0, Thread: 0x4EFC (Main), GetLastError(): 13 (???????????? ??????). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar  8 2025 15:34:49, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, Debug
+Started:	Mar 08 2025 15:34:52
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------

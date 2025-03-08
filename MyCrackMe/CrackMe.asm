@@ -54,7 +54,7 @@ Retry:
                 InputPassword   db  15 dup ('S'); buffer with input password
 VerifyPassword:
                 mov  dx, bx                     ; dx = bx (for hacking)
-                ;pop  ax                         ; back ax from stack
+
                 call Verify                     ; compare strings InputPassword
                                                 ; and AdminPassword with len cx
                                                 ; bx += 1, if password is
