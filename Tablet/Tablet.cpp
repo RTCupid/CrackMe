@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "../common/colors.h"
 #include "../FreadFile/FreadFile.h"
@@ -22,7 +23,7 @@ bool Tablet (const char* namefile)
         return 0;
     }
 
-    printf (GRN "%s\n" RESET, *Ongn.HackBuffer);                    // this operation doesn't work correctly
+    //printf (GRN "%s\n" RESET, *Ongn.HackBuffer);                    // this operation doesn't work correctly
 
     (*Ongn.HackBuffer)[103] = char(104);                            // call -> push in CRACKME.COM
     (*Ongn.HackBuffer)[104] = char(107);                            // ptr to func that

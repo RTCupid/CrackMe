@@ -2,17 +2,34 @@
 
 #include "common/colors.h"
 #include "Tablet/Tablet.h"
+#include "Tablet/Graphics.h"
 
 int main ()
 {
     printf (GRN "# Program for Hacking .com file\n" RESET);
     printf (GRN "# (c) RTCupid, 2025\n" RESET);
 
+    Graphics ();                                                    // Make Window with wallpaper
+
+    char* InputNameFile = InputNameOfFile ();                       // Input name of file from dialog window
+    if (InputNameFile == NULL)
+    {
+        printf (RED "ERROR: InputNameOfFile\n" RESET);
+        return 0;
+    }
+
+    if (!CheckNameOfFile (InputNameFile))
+    {
+        return 0;
+    }
+
     if (!Tablet ("DimaMorg/CRACK.COM"))
     {
         printf (RED "ERROR: CAN'T HACK FILE" RESET);
         return 0;
     }
+
+    void CorrectFile ();
 
     return 0;
 }

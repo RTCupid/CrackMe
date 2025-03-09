@@ -57,14 +57,14 @@ bool InputOnegin (MP* Ongn)//char** Onegin, size_t* sizeOfFile, const char* name
         return 0;
     }
 
-    printf ("\n%s\n", *Ongn->HackBuffer);                                      // вывожу начальный текст Онегина
+    //printf ("\n%s\n", *Ongn->HackBuffer);                                      // вывожу начальный текст Онегина
 
     printf (GRN "Ongn->HackBuffer = %p\n"  RESET,  Ongn->HackBuffer);
     printf (GRN "*Ongn->HackBuffer = %p\n" RESET, *Ongn->HackBuffer);
 
     fclose (file);                                                   // закрываю файл
 
-    DBG printf ("sizeOfFile = <%d>\n\n", Ongn->sizeOfFile);
+    DBG printf ("sizeOfFile = <%lu>\n\n", Ongn->sizeOfFile);
     return 1;
 }
 
