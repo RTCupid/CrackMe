@@ -1,13 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "common/colors.h"
 #include "Tablet/Tablet.h"
 #include "Tablet/Graphics.h"
 
-int main ()
+int main (int argc, char* argv[])
 {
     printf (GRN "# Program for Hacking .com file\n" RESET);
     printf (GRN "# (c) RTCupid, 2025\n" RESET);
+
+    for (int i = 0; i < argc; i++)
+    {
+        printf ("argv[%d] = <%s>\n", i, argv[i]);
+    }
+
+    if (argc > 1)
+    {
+        printf (GRN "OK!\n");
+    }
+    else
+    {
+        printf ("Don't find asm file\n");
+        abort ();
+    }
 
     CreateBaseWindow ();
 
