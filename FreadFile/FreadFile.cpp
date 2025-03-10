@@ -10,7 +10,7 @@
 #include "../common/colors.h"
 #include "FreadFile.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
 
@@ -26,11 +26,11 @@ bool InputOnegin (MP* Ongn)//char** Onegin, size_t* sizeOfFile, const char* name
 
     DBG printf (GRN "count of char = %ld\n" RESET, fileInf.st_size / sizeof (char));
 
-    printf (GRN "Onegin isn't create\n" RESET);
+    DBG printf (GRN "Onegin isn't create\n" RESET);
 
     *Ongn->HackBuffer = (char*)calloc (fileInf.st_size + 1, sizeof(char));     // каллочу буффер, чтобы в него считать текст
 
-    printf (GRN "Onegin is create\n" RESET);
+    DBG printf (GRN "Onegin is create\n" RESET);
 
     if (Ongn->HackBuffer == NULL)
     {
@@ -59,12 +59,12 @@ bool InputOnegin (MP* Ongn)//char** Onegin, size_t* sizeOfFile, const char* name
 
     //printf ("\n%s\n", *Ongn->HackBuffer);                                      // вывожу начальный текст Онегина
 
-    printf (GRN "Ongn->HackBuffer = %p\n"  RESET,  Ongn->HackBuffer);
-    printf (GRN "*Ongn->HackBuffer = %p\n" RESET, *Ongn->HackBuffer);
+    DBG printf (GRN "Ongn->HackBuffer = %p\n"  RESET,  Ongn->HackBuffer);
+    DBG printf (GRN "*Ongn->HackBuffer = %p\n" RESET, *Ongn->HackBuffer);
 
     fclose (file);                                                   // закрываю файл
 
-    DBG printf ("sizeOfFile = <%lu>\n\n", Ongn->sizeOfFile);
+    DBG printf ("sizeOfFile = <%u>\n\n", Ongn->sizeOfFile);
     return 1;
 }
 

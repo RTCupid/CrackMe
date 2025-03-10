@@ -5,18 +5,18 @@
 #include "../common/colors.h"
 #include "Graphics.h"
 
-void Graphics()
+void Graphics(const char* wallpaper)
 {
     txCreateWindow (950, 526);
 
-    HDC image = txLoadImage ("./bmp/1.bmp", 950, 526);
+    HDC image = txLoadImage (wallpaper, 950, 526);
 
     txBitBlt (txDC (), 0, 0, 0, 0, image);                          // + screen wallpaper
 }
 
 char* InputNameOfFile ()
 {
-    const char* InputString = txInputBox ("Enter file to hack:\n", "Hacker.com", "loh");
+    const char* InputString = txInputBox ("Enter file to hack:\n", "Hacker.com");
 
     printf (GRN "string =\"%s\"\n" RESET, InputString);
 
@@ -38,14 +38,17 @@ bool CheckNameOfFile (char* InputNameFile)
     {
         return 1;
     }
-    txSelectFont ("Times New Roman", 60);
-    txTextOut (240, 400, "ERROR: unknown file");
+    txSetColor (TX_RED);
+    txSelectFont ("Times New Roman", 45);
+    txTextOut (240, 400, "ERROR: ERROR: ERROR: ERROR");
+    txTextOut (240, 445, "ERROR: ERROR: unknown file");
 
     return 0;
 }
 
 void CorrectFile ()
 {
-    txSelectFont ("Times New Roman", 60);
-    txTextOut    (240, 400, "I HACK IT!");
+    txSetColor (TX_GREEN);
+    txSelectFont ("Times New Roman", 45);
+    txTextOut    (400, 400, "I HACK IT!");
 }

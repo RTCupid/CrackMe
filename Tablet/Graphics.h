@@ -1,7 +1,7 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-void  Graphics        ();
+void  Graphics        (const char* wallpaper);
 
 char* InputNameOfFile ();
 

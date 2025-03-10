@@ -9,7 +9,7 @@ int main ()
     printf (GRN "# Program for Hacking .com file\n" RESET);
     printf (GRN "# (c) RTCupid, 2025\n" RESET);
 
-    Graphics ();                                                    // Make Window with wallpaper
+    Graphics ("bmp/1.bmp");                                                    // Make Window with wallpaper
 
     char* InputNameFile = InputNameOfFile ();                       // Input name of file from dialog window
     if (InputNameFile == NULL)
@@ -29,7 +29,7 @@ int main ()
         return 0;
     }
 
-    void CorrectFile ();
+    CorrectFile ();
 
     return 0;
 }
