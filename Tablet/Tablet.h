@@ -1,6 +1,6 @@
 #ifndef TABLET_H
 #define TABLET_H
 
-bool Tablet             (const char* namefile);
+bool Tablet (FILE* PatchingFile, const char* namefile);
 
 #endif

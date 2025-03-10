@@ -9,7 +9,7 @@ void  Graphics         (const char* wallpaper);
 
 char* InputNameOfFile  ();
 
-bool  CheckNameOfFile  (FILE* PatchingFile, char* InputNameFile);
+bool  CheckNameOfFile  (char* OriginalNameOfPatchFile, char* InputNameFile);
 
 void  CorrectFile      ();
 

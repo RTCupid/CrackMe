@@ -6,7 +6,7 @@
 #include "../FreadFile/FreadFile.h"
 #include "Tablet.h"
 
-bool Tablet (const char* namefile)
+bool Tablet (FILE* PatchingFile, const char* namefile)
 {
     char* HackBuffer = NULL;
 
@@ -25,10 +25,21 @@ bool Tablet (const char* namefile)
 
     //printf (GRN "%s\n" RESET, *Ongn.HackBuffer);                    // this operation doesn't work correctly
 
-    (*Ongn.HackBuffer)[103] = char(104);                            // call -> push in CRACKME.COM
-    (*Ongn.HackBuffer)[104] = char(107);                            // ptr to func that
-    (*Ongn.HackBuffer)[105] = char(1);                              // gives admin rights
-                                                                    // because next operator is ret
+    int ptr     = 0;
+    int byte    = 0;
+    int endfile = 0;
+
+    while (1)
+    {
+        endfile = fscanf (PatchingFile, "%d", &ptr);
+        if (endfile == EOF)
+        {
+            break;
+        }
+        fscanf (PatchingFile, "%d", &byte);
+
+        (*Ongn.HackBuffer)[ptr] = char(byte);
+    }
 
     FILE* Hacked_file = fopen ("DimaMorg/HACKED_CRACKME.COM", "w");
 

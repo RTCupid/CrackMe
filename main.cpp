@@ -33,12 +33,16 @@ int main (int argc, char* argv[])
         return 0;
     }
 
-    if (!CheckNameOfFile (PatchingFile, InputNameFile))
+    char* OriginalNameOfPatchFile = (char*) calloc (30, sizeof (*OriginalNameOfPatchFile));
+
+    fscanf (PatchingFile, "%s", OriginalNameOfPatchFile);
+
+    if (!CheckNameOfFile (OriginalNameOfPatchFile, InputNameFile))
     {
         return 0;
     }
 
-    if (!Tablet ("DimaMorg/CRACK.COM"))
+    if (!Tablet (PatchingFile, OriginalNameOfPatchFile))
     {
         printf (RED "ERROR: CAN'T HACK FILE" RESET);
         return 0;
@@ -47,6 +51,9 @@ int main (int argc, char* argv[])
     LoadHacking ();
 
     CorrectFile ();
+
+    free (OriginalNameOfPatchFile);
+    free (PatchingFile);
 
     return 0;
 }

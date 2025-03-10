@@ -48,16 +48,13 @@ char* InputNameOfFile ()
     return InputNameFile;
 }
 
-bool  CheckNameOfFile  (FILE* PatchingFile, char* InputNameFile)
+bool  CheckNameOfFile  (char* OriginalNameOfPatchFile, char* InputNameFile)
 {
-    char* OriginalNameOfPatchFile = (char*) calloc (30, sizeof (*OriginalNameOfPatchFile));
-
-    fscanf (PatchingFile, "%s", OriginalNameOfPatchFile);
-
     if (!strcmp (InputNameFile, OriginalNameOfPatchFile))
     {
         return 1;
     }
+
     Graphics ("bmp/2.bmp");
     txSetColor (TX_RED);
     txSelectFont ("Times New Roman", 45);
