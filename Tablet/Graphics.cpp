@@ -48,9 +48,13 @@ char* InputNameOfFile ()
     return InputNameFile;
 }
 
-bool CheckNameOfFile (char* InputNameFile)
+bool  CheckNameOfFile  (FILE* PatchingFile, char* InputNameFile)
 {
-    if (!strcmp (InputNameFile, "DimaMorg/CRACKME.COM"))
+    char* OriginalNameOfPatchFile = (char*) calloc (30, sizeof (*OriginalNameOfPatchFile));
+
+    fscanf (PatchingFile, "%s", OriginalNameOfPatchFile);
+
+    if (!strcmp (InputNameFile, OriginalNameOfPatchFile))
     {
         return 1;
     }

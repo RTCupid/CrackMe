@@ -10,20 +10,17 @@ int main (int argc, char* argv[])
     printf (GRN "# Program for Hacking .com file\n" RESET);
     printf (GRN "# (c) RTCupid, 2025\n" RESET);
 
-    for (int i = 0; i < argc; i++)
-    {
-        printf ("argv[%d] = <%s>\n", i, argv[i]);
-    }
-
     if (argc > 1)
     {
-        printf (GRN "OK!\n");
+        printf (GRN "OK, START!\n" RESET);
     }
     else
     {
-        printf ("Don't find asm file\n");
+        printf (RED "Don't find file of patch\n" RESET);
         abort ();
     }
+
+    FILE* PatchingFile = fopen (argv[1], "r");
 
     CreateBaseWindow ();
 
@@ -36,7 +33,7 @@ int main (int argc, char* argv[])
         return 0;
     }
 
-    if (!CheckNameOfFile (InputNameFile))
+    if (!CheckNameOfFile (PatchingFile, InputNameFile))
     {
         return 0;
     }
