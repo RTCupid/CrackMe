@@ -9,7 +9,9 @@ int main ()
     printf (GRN "# Program for Hacking .com file\n" RESET);
     printf (GRN "# (c) RTCupid, 2025\n" RESET);
 
-    Graphics ("bmp/1.bmp");                                                    // Make Window with wallpaper
+    CreateBaseWindow ();
+
+    Graphics ("bmp/1.bmp");                                         // Make wallpaper
 
     char* InputNameFile = InputNameOfFile ();                       // Input name of file from dialog window
     if (InputNameFile == NULL)
@@ -28,6 +30,8 @@ int main ()
         printf (RED "ERROR: CAN'T HACK FILE" RESET);
         return 0;
     }
+
+    LoadHacking ();
 
     CorrectFile ();
 

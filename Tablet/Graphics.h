@@ -1,12 +1,16 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-void  Graphics        (const char* wallpaper);
+void  CreateBaseWindow ();
 
-char* InputNameOfFile ();
+void  LoadHacking      ();
 
-bool  CheckNameOfFile (char* InputNameFile);
+void  Graphics         (const char* wallpaper);
 
-void  CorrectFile     ();
+char* InputNameOfFile  ();
+
+bool  CheckNameOfFile  (char* InputNameFile);
+
+void  CorrectFile      ();
 
 #endif

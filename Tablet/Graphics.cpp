@@ -5,10 +5,26 @@
 #include "../common/colors.h"
 #include "Graphics.h"
 
-void Graphics(const char* wallpaper)
+void  LoadHacking ()
+{
+    for (int i = 2; i <= 7; i++)
+    {
+        assert (i <=7);
+
+        char namepng[12] = {};
+        sprintf (namepng, "./bmp/%d.bmp", i);
+        Graphics (namepng);
+        txSleep (250);
+    }
+}
+
+void CreateBaseWindow ()
 {
     txCreateWindow (950, 526);
+}
 
+void Graphics(const char* wallpaper)
+{
     HDC image = txLoadImage (wallpaper, 950, 526);
 
     txBitBlt (txDC (), 0, 0, 0, 0, image);                          // + screen wallpaper
@@ -18,7 +34,7 @@ char* InputNameOfFile ()
 {
     const char* InputString = txInputBox ("Enter file to hack:\n", "Hacker.com");
 
-    printf (GRN "string =\"%s\"\n" RESET, InputString);
+    //printf (GRN "string =\"%s\"\n" RESET, InputString);
 
     char* InputNameFile = (char*) calloc (31, sizeof (*InputNameFile));
     if (InputNameFile == NULL)
@@ -38,6 +54,7 @@ bool CheckNameOfFile (char* InputNameFile)
     {
         return 1;
     }
+    Graphics ("bmp/2.bmp");
     txSetColor (TX_RED);
     txSelectFont ("Times New Roman", 45);
     txTextOut (240, 400, "ERROR: ERROR: ERROR: ERROR");
@@ -50,5 +67,5 @@ void CorrectFile ()
 {
     txSetColor (TX_GREEN);
     txSelectFont ("Times New Roman", 45);
-    txTextOut    (400, 400, "I HACK IT!");
+    txTextOut    (300, 400, "HACKING COMPLETED!");
 }

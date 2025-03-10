@@ -91,3 +91,153 @@ Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
 Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe, файл: C:\Users\19apr\Documents\TX\TXLib.h, строка: 8740, функция: HWND__* {anonymous}::TX::txCreateWindow(double, double, bool),
+
+Сообщение: Окно рисования уже создано!
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: CMdRe0, Thread: 0x33C (Main), GetLastError(): 13 (???????????? ??????). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in HWND__* {anonymous}::TX::txCreateWindow(double, double, bool) at C:\Users\19apr\Documents\TX\TXLib.h:8740:
+
+   8738:         {
+   8739: $       SetLastErrorEx (ERROR_INVALID_DATA, 0);
+=> 8740: $       _TX_ON_DEBUG (TX_ERROR ("\a" "Окно рисования уже создано!"));
+   8741: $       return wnd;
+   8742:         }
+
+# 1 in void Graphics(const char*) at ./Tablet/Graphics.cpp:21:
+
+     19: void Graphics(const char* wallpaper)
+     20: {
+=>   21:     txCreateWindow (950, 526);
+     22: 
+     23:     HDC image = txLoadImage (wallpaper, 950, 526);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 10 2025 11:52:02, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 10 2025 11:52:15
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe, файл: C:\Users\19apr\Documents\TX\TXLib.h, строка: 13721, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "destImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x57F4 (Main), GetLastError(): 13 (???????????? ??????). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at C:\Users\19apr\Documents\TX\TXLib.h:13721:
+
+  13719:                HDC sourceImage, double xSource /*= 0*/, double ySource /*= 0*/, unsigned operation /*= SRCCOPY*/)
+  13720:     {
+=>13721: $1  if (_TX_HDC_FAILED (destImage))   return false;
+  13722: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13723: 
+
+# 1 in void Graphics(const char*) at ./Tablet/Graphics.cpp:28:
+
+     26:     HDC image = txLoadImage (wallpaper, 950, 526);
+     27: 
+=>   28:     txBitBlt (txDC (), 0, 0, 0, 0, image);                          // + screen wallpaper
+     29: }
+     30: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 10 2025 11:56:27, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 10 2025 11:56:33
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe, файл: C:\Users\19apr\Documents\TX\TXLib.h, строка: 13722, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: CMdRe0, Thread: 0x5EF4 (Main), GetLastError(): 13 (???????????? ??????). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at C:\Users\19apr\Documents\TX\TXLib.h:13722:
+
+  13720:     {
+  13721: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13722: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13723: 
+  13724: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in void Graphics(const char*) at ./Tablet/Graphics.cpp:28:
+
+     26:     HDC image = txLoadImage (wallpaper, 950, 526);
+     27: 
+=>   28:     txBitBlt (txDC (), 0, 0, 0, 0, image);                          // + screen wallpaper
+     29: }
+     30: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 10 2025 11:57:16, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 10 2025 11:57:22
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
