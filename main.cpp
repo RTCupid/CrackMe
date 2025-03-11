@@ -42,7 +42,7 @@ int main (int argc, char* argv[])
         return 0;
     }
 
-    if (!Tablet (PatchingFile, "DimaMorg/CRACKME.COM"))
+    if (!Tablet (PatchingFile, OriginalNameOfPatchFile))
     {
         printf (RED "ERROR: CAN'T HACK FILE" RESET);
         return 0;
