@@ -42,6 +42,16 @@ int main (int argc, char* argv[])
         return 0;
     }
 
+    //uint64_t OriginalHash = 0;
+
+    //fscanf (PatchingFile, "%lu", OriginalNameOfPatchFile);
+
+    //if (!CheckHash (OriginalHash, InputNameFile))
+    //{
+    //    return 0;
+    //}
+
+
     if (!Tablet (PatchingFile, OriginalNameOfPatchFile))
     {
         printf (RED "ERROR: CAN'T HACK FILE" RESET);

@@ -241,3 +241,36 @@ Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
 Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4264 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 21:27:21, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 21:31:03
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------

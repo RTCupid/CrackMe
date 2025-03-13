@@ -11,6 +11,10 @@ char* InputNameOfFile  ();
 
 bool  CheckNameOfFile  (char* OriginalNameOfPatchFile, char* InputNameFile);
 
+//bool  CheckHash        (uint64_t OriginalHash, char* InputNameFile);
+
+//uint64_t CountHash     (char* InputNameFile);
+
 void  CorrectFile      ();
 
 #endif
