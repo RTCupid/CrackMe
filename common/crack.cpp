@@ -74,7 +74,9 @@ bool InptCtor (inpt_t* input)
         input->name,
     };
 
-    if (!InputOnegin (&Ongn))                                       // func to find len of file
+    input->size = InputOnegin (&Ongn);
+
+    if (!input->size)                                               // func to find len of file
     {                                                               // and make buffer from file
         printf (RED "ERROR: CAN'T MAKE BUFFER FROM FILE\n" RESET);
         return 0;
@@ -108,10 +110,27 @@ bool HashCount (inpt_t* input)
 bool PatchDtor (patch_t* patch)
 {
     free (patch->file);
+    patch->file = NULL;
 
     free (patch->name);
+    patch->name = NULL;
 
     free (patch);
+    patch = NULL;
+
+    return 1;
+}
+
+bool InptDtor (inpt_t* input)
+{
+    free (input->buffer);
+    input->buffer = NULL;
+
+    free (input->name);
+    input->name = NULL;
+
+    free (input);
+    input = NULL;
 
     return 1;
 }

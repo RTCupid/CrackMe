@@ -14,7 +14,7 @@
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
 
-bool InputOnegin (MP* Ongn)//char** Onegin, size_t* sizeOfFile, const char* nameFile)
+size_t InputOnegin (MP* Ongn)//char** Onegin, size_t* sizeOfFile, const char* nameFile)
 {
     struct stat fileInf = {};
 
@@ -64,8 +64,8 @@ bool InputOnegin (MP* Ongn)//char** Onegin, size_t* sizeOfFile, const char* name
 
     fclose (file);                                                   // закрываю файл
 
-    DBG printf ("sizeOfFile = <%lu>\n\n", Ongn->sizeOfFile);
-    return 1;
+    DBG printf ("sizeOfFile = <%u>\n\n", Ongn->sizeOfFile);
+    return Ongn->sizeOfFile;
 }
 
 // функция определения размера файла с помощью стата

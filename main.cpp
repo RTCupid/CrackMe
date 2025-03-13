@@ -17,14 +17,9 @@ int main (int argc, char* argv[])
         exit (0);
     }
 
-    patch_t patch = {};
+    CreateBaseWindow ();
 
-    if (!PatchCtor (&patch, argv[1]))
-    {
-        printf (RED "main: can't construct patch\n exit\n" RESET);
-        printf (RED "exit\n" RESET);
-        exit (0);
-    }
+    Graphics ("bmp/1.bmp");                                         // Make wallpaper
 
     inpt_t input = {};
 
@@ -35,41 +30,22 @@ int main (int argc, char* argv[])
         exit (0);
     }
 
-    return 0;
+    patch_t patch = {};
 
-    FILE* PatchingFile = fopen (argv[1], "r");
-
-    CreateBaseWindow ();
-
-    Graphics ("bmp/1.bmp");                                         // Make wallpaper
-
-    char* InputNameFile = InputNameOfFile ();                       // Input name of file from dialog window
-    if (InputNameFile == NULL)
+    if (!PatchCtor (&patch, argv[1]))
     {
-        printf (RED "ERROR: InputNameOfFile\n" RESET);
+        printf (RED "main: can't construct patch\n exit\n" RESET);
+        printf (RED "exit\n" RESET);
+        exit (0);
+    }
+
+    if (!CheckNameOfFile (patch, input))
+    {
+        printf (RED "main: unknown file" RESET);
         return 0;
     }
 
-    char* OriginalNameOfPatchFile = (char*) calloc (30, sizeof (*OriginalNameOfPatchFile));
-
-    fscanf (PatchingFile, "%s", OriginalNameOfPatchFile);
-
-    if (!CheckNameOfFile (OriginalNameOfPatchFile, InputNameFile))
-    {
-        return 0;
-    }
-
-    //uint64_t OriginalHash = 0;
-
-    //fscanf (PatchingFile, "%lu", OriginalNameOfPatchFile);
-
-    //if (!CheckHash (OriginalHash, InputNameFile))
-    //{
-    //    return 0;
-    //}
-
-
-    if (!Tablet (PatchingFile, OriginalNameOfPatchFile))
+    if (!Tablet (patch, &input))
     {
         printf (RED "ERROR: CAN'T HACK FILE" RESET);
         return 0;
@@ -79,10 +55,9 @@ int main (int argc, char* argv[])
 
     CorrectFile ();
 
-    free (OriginalNameOfPatchFile);
-    free (PatchingFile);
+    PatchDtor (&patch);
 
-    bool PatchDtor ();
+    InptDtor  (&input);
 
     return 0;
 }

@@ -4,6 +4,7 @@
 #include "TXLib.h"
 #include "../common/colors.h"
 #include "Graphics.h"
+#include "../common/crack.h"
 
 void  LoadHacking ()
 {
@@ -48,9 +49,9 @@ char* InputNameOfFile ()
     return InputNameFile;
 }
 
-bool  CheckNameOfFile  (char* OriginalNameOfPatchFile, char* InputNameFile)
+bool  CheckNameOfFile  (patch_t patch, inpt_t input)
 {
-    if (!strcmp (InputNameFile, OriginalNameOfPatchFile))
+    if (!strcmp (patch.name, input.name))
     {
         return 1;
     }

@@ -11,8 +11,8 @@ struct MP
     const char* nameFile;
 };
 
-bool InputOnegin (MP* ongn);
+size_t InputOnegin (MP* ongn);
 
-bool SizeFile (struct stat* fileInf, const char* nameFile);
+bool   SizeFile (struct stat* fileInf, const char* nameFile);
 
 #endif

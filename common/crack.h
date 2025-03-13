@@ -13,6 +13,7 @@ typedef struct inpt_t
     char* name;
     size_t hash;
     char* buffer;
+    size_t size;
 } inpt_t;
 
 const size_t MAX_LEN_NAME_FILE= 30;
@@ -26,5 +27,7 @@ bool InptCtor  (inpt_t* input);
 bool HashCount (inpt_t* input);
 
 bool PatchDtor (patch_t* patch);
+
+bool InptDtor (inpt_t* input);
 
 #endif

@@ -1,6 +1,10 @@
 #ifndef TABLET_H
 #define TABLET_H
 
-bool Tablet (FILE* PatchingFile, const char* namefile);
+struct patch_t;
+
+struct inpt_t;
+
+bool Tablet (patch_t patch, inpt_t* input);
 
 #endif
