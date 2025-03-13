@@ -4,6 +4,7 @@
 #include "common/crack.h"
 #include "common/colors.h"
 #include "Tablet/Tablet.h"
+#include "FreadFile/FreadFile.h"
 #include "Tablet/Graphics.h"
 
 int main (int argc, char* argv[])
@@ -14,7 +15,7 @@ int main (int argc, char* argv[])
     if (!CheckArgc (argc))
     {
         printf (RED "main: argc = 0\n exit\n" RESET);
-        exit (0);
+        return 0;
     }
 
     CreateBaseWindow ();
@@ -27,7 +28,7 @@ int main (int argc, char* argv[])
     {
         printf (RED "main: can't construct input\n" RESET);
         printf (RED "exit\n" RESET);
-        exit (0);
+        return 0;
     }
 
     patch_t patch = {};
@@ -36,7 +37,13 @@ int main (int argc, char* argv[])
     {
         printf (RED "main: can't construct patch\n exit\n" RESET);
         printf (RED "exit\n" RESET);
-        exit (0);
+        return 0;
+    }
+
+    if (!CheckHash (patch, input))
+    {
+        printf (RED "main: error hash: unknown file" RESET);
+        return 0;
     }
 
     if (!CheckNameOfFile (patch, input))

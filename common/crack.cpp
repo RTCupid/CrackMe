@@ -82,7 +82,9 @@ bool InptCtor (inpt_t* input)
         return 0;
     }
 
-    HashCount (input);
+    input->hash = HashCount (input->size, input->buffer);
+
+    printf (GRN "OK, hash = %u\n" RESET, input->hash);
 
     printf (GRN "OK, make struct input\n" RESET);
 
@@ -91,18 +93,22 @@ bool InptCtor (inpt_t* input)
 
 //---------------------------------------------------------
 
-bool HashCount (inpt_t* input)
+size_t HashCount (size_t size, char* buffer)
 {
-    char symbol  = 0;
+    char   symbol  = 0;
+    size_t hash    = 0;
 
-    symbol = input->buffer[0];
+    symbol = buffer[0];
 
-    for (size_t index = 1; symbol !=EOF; index++, symbol = input->buffer[index])
+    for (size_t index = 1; index < size; index++, symbol = buffer[index])
     {
-        input->hash += (size_t) pow (symbol, 2);
+        //printf ("symbol = <%c>, symbol = <%d>\n", symbol, symbol);
+        //hash += (size_t) pow (symbol, 2);
+        hash += (size_t) abs (symbol);
+        //printf ("hash = <%u>\n", hash);
     }
 
-    return 1;
+    return hash;
 }
 
 //---------------------------------------------------------

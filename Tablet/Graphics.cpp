@@ -65,6 +65,24 @@ bool  CheckNameOfFile  (patch_t patch, inpt_t input)
     return 0;
 }
 
+bool  CheckHash  (patch_t patch, inpt_t input)
+{
+    if (patch.hash == input.hash)
+    {
+        return 1;
+    }
+
+    Graphics ("bmp/2.bmp");
+    txSetColor (TX_RED);
+    txSelectFont ("Times New Roman", 45);
+    txTextOut (240, 400, "ERROR: ERROR: ERROR: ERROR");
+    txTextOut (240, 445, "ERROR: ERROR: unknown file");
+
+    return 0;
+}
+
+
+
 void CorrectFile ()
 {
     txSetColor (TX_GREEN);
