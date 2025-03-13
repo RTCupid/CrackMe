@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "common/crack.h"
 #include "common/colors.h"
 #include "Tablet/Tablet.h"
 #include "Tablet/Graphics.h"
@@ -10,15 +11,31 @@ int main (int argc, char* argv[])
     printf (GRN "# Program for Hacking .com file\n" RESET);
     printf (GRN "# (c) RTCupid, 2025\n" RESET);
 
-    if (argc > 1)
+    if (!CheckArgc (argc))
     {
-        printf (GRN "OK, START!\n" RESET);
+        printf (RED "main: argc = 0\n exit\n" RESET);
+        exit (0);
     }
-    else
+
+    patch_t patch = {};
+
+    if (!PatchCtor (&patch, argv[1]))
     {
-        printf (RED "Don't find file of patch\n" RESET);
-        abort ();
+        printf (RED "main: can't construct patch\n exit\n" RESET);
+        printf (RED "exit\n" RESET);
+        exit (0);
     }
+
+    inpt_t input = {};
+
+    if (!InptCtor (&input))
+    {
+        printf (RED "main: can't construct input\n" RESET);
+        printf (RED "exit\n" RESET);
+        exit (0);
+    }
+
+    return 0;
 
     FILE* PatchingFile = fopen (argv[1], "r");
 
@@ -64,6 +81,8 @@ int main (int argc, char* argv[])
 
     free (OriginalNameOfPatchFile);
     free (PatchingFile);
+
+    bool PatchDtor ();
 
     return 0;
 }

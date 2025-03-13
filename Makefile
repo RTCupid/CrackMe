@@ -12,8 +12,8 @@ BIN_DIR=./build/bin
 
 run: ${BIN_DIR}/a.exe
 
-$(BIN_DIR)/a.exe: $(OBJ_DIR)/Tablet.o $(OBJ_DIR)/FreadFile.o $(OBJ_DIR)/Graphics.o $(OBJ_DIR)/main.o
-	$(CC)  $(OBJ_DIR)/Tablet.o $(OBJ_DIR)/FreadFile.o $(OBJ_DIR)/Graphics.o $(OBJ_DIR)/main.o -o a.exe $(FLAGS)
+$(BIN_DIR)/a.exe: $(OBJ_DIR)/crack.o $(OBJ_DIR)/Tablet.o $(OBJ_DIR)/FreadFile.o $(OBJ_DIR)/Graphics.o $(OBJ_DIR)/main.o
+	$(CC)  $(OBJ_DIR)/crack.o $(OBJ_DIR)/Tablet.o $(OBJ_DIR)/FreadFile.o $(OBJ_DIR)/Graphics.o $(OBJ_DIR)/main.o -o a.exe $(FLAGS)
 
 $(OBJ_DIR)/Tablet.o: ./Tablet/Tablet.cpp ./Tablet/Tablet.h ./FreadFile/FreadFile.h
 	$(CC) -c ./Tablet/Tablet.cpp -o $(OBJ_DIR)/Tablet.o $(FLAGS)
@@ -23,6 +23,9 @@ $(OBJ_DIR)/FreadFile.o: ./FreadFile/FreadFile.cpp ./FreadFile/FreadFile.h
 
 $(OBJ_DIR)/Graphics.o: ./Tablet/Graphics.cpp ./Tablet/Graphics.h
 	$(CC) -c ./Tablet/Graphics.cpp -o $(OBJ_DIR)/Graphics.o $(FLAGS)
+
+$(OBJ_DIR)/crack.o: ./common/crack.cpp ./common/colors.h ./common/crack.h
+	$(CC) -c ./common/crack.cpp -o $(OBJ_DIR)/crack.o $(FLAGS)
 
 $(OBJ_DIR)/main.o: main.cpp ./Tablet/Tablet.h ./Tablet/Graphics.h
 	$(CC) -c main.cpp -o $(OBJ_DIR)/main.o $(FLAGS)

@@ -274,3 +274,913 @@ Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
 Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x39C0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:28:06
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x39C0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:28:06
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x51C4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:30:36
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x51C4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:30:36
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4D80 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:33:15
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4D80 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:33:15
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4E28 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:33:54
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4E28 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:33:54
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4580 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:34:53
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4580 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:34:53
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x27EC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:35:18
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x27EC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:26:39, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:35:18
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4C54 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:36:51
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4C54 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:36:51
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4684 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:39:19
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769C3F59. Попытка записать данные по адресу NULL. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4684 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:39:19
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4530 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:40:51
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x4530 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:40:51
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x48B0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:41:37
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x48B0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:41:37
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0xC84 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:45:57
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x77C83AF0. Попытка записать данные по адресу 0x41524353. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0xC84 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:45:57
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769BEE64. Попытка прочесть данные по адресу 0x616D6944. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x44F8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:47:06
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769BEE64. Попытка прочесть данные по адресу 0x616D6944. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x44F8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:47:06
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769BEE64. Попытка прочесть данные по адресу 0x616D6944. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x53C8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:47:35
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x769BEE64. Попытка прочесть данные по адресу 0x616D6944. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0045671C (32-bit), Flags: Cmdre0, Thread: 0x53C8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\19apr\Documents\TX\TXLib.h
+Compiled:	Mar 13 2025 23:36:33, GNU g++ 6.3.0, std=201402L, MinGW Runtime 5.0, 32-bit, DEBUG
+Started:	Mar 13 2025 23:47:35
+
+Run file:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe\a.exe
+Directory:	C:\Users\19apr\Documents\DOSBox\Bin\codes\CrackMe
+
+--------------------------------------------------

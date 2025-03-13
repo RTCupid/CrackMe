@@ -64,7 +64,7 @@ bool InputOnegin (MP* Ongn)//char** Onegin, size_t* sizeOfFile, const char* name
 
     fclose (file);                                                   // закрываю файл
 
-    DBG printf ("sizeOfFile = <%u>\n\n", Ongn->sizeOfFile);
+    DBG printf ("sizeOfFile = <%lu>\n\n", Ongn->sizeOfFile);
     return 1;
 }
 

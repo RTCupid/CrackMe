@@ -64,18 +64,6 @@ bool  CheckNameOfFile  (char* OriginalNameOfPatchFile, char* InputNameFile)
     return 0;
 }
 
-//bool CheckHash (uint64_t OriginalHash, char* InputNameFile)
-//{
-//    InputFileHash = CountHash (InputNameFile);
-
-//
-
-//uint64_t CountHash     (char* InputNameFile)
-//{
-
-//}
-
-
 void CorrectFile ()
 {
     txSetColor (TX_GREEN);
